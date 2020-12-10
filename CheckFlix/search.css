@@ -1,0 +1,33 @@
+
+/* the listings container */
+#listings {
+    margin: 10px auto;
+    width: 95%;
+    /*border: 4px solid blue;*/
+    padding: 20px;
+    overflow: hidden;
+}
+
+/* a single show/movie container */
+#anElement {
+    width: 46%;
+    float: left;
+    margin:  30px 30px;
+    /*border: 4px solid red;*/
+}
+
+/* thumbnail of show/movie */
+#listings div div img {
+    /*border: 4px solid blue;*/
+    margin-right: 15px;
+    float: left;
+}
+
+/* content or details of show/movie */
+#listings div #content {
+    margin-left: 15px;
+    display: block;
+    margin: 2px 0 0 0;
+    color: whitesmoke;
+
+}

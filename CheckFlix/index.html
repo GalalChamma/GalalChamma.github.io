@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CheckFlix</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link href="index.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="index.js"></script>
+</head>
+<body>
+    <div class="Logo" id="Logo">
+        <p><span class="Logo-Check">CHECK</span><span class="Logo-Flix">FLIX</span></p>
+    </div>
+
+    <main>
+        <form id="myForm" method="GET" action="search.html">
+            <div class="SearchRow">
+                <input type="text" class="SearchBar" id="searchInput" name="searchInputText" placeholder="Search by title name">
+                <input type="submit" value="Search"  class="mainButton" id="searchButton">
+                <button type="button" class="mainButton" id="newAddedButton">New</button>
+            </div>
+        </form>
+
+        <div class="cardShowcase">
+                <div>
+                    <h2 id="Genres">Genres</h2>
+                </div>
+                <div class="card">
+                    <div class="card-action"></div>
+                    <div class="card-stats">
+                        <p>Action</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-comedy"></div>
+                    <div class="card-stats">
+                        <p>Comedy</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-adventure"></div>
+                    <div class="card-stats">
+                        <p>Adventure</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-thriller"></div>
+                    <div class="card-stats">
+                        <p>Thriller</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-horror"></div>
+                    <div class="card-stats">
+                        <p>Horror</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-documentary"></div>
+                    <div class="card-stats">
+                        <p>Documentary</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-classics"></div>
+                    <div class="card-stats">
+                        <p>Classics</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-kids"></div>
+                    <div class="card-stats">
+                        <p>Kids</p>
+                    </div>
+                </div>
+        </div>
+    </main>
+</body>
+</html>

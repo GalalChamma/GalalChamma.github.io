@@ -1,0 +1,180 @@
+
+.Logo {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    cursor: pointer;
+}
+
+.Logo-Check {
+    color: darkred;
+    font-size: 2.5em;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}
+
+.Logo-Flix {
+    color: whitesmoke;
+    font-size: 2.5em;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+.center {
+    /* Add text-align property if needed to its own div*/
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.SearchRow{
+    font-size: 1em;
+    text-align: center;
+    /*border: 3px solid green;*/
+}
+
+.SearchBar{
+    border-radius: 18px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 1em;
+    width: 25%;
+    height: 30px;
+}
+
+.mainButton {
+    height: 30px;
+    border-radius: 18px;
+
+}
+
+body {
+    /* disables the black vertical line when clicking on text a.k.a the "caret" */
+    -webkit-user-select: none;
+
+
+    background: url("images/background.jpg");
+    background-size: cover;
+    background-color: darkgrey;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}
+
+
+.cardShowcase {
+    margin-top: 100px;
+    width: 100%;
+    height: 100%;
+    display:block;
+    /*
+    display:flex;
+    align-items: center;
+    justify-content: center;
+     */
+
+}
+.card {
+    float: left;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 180px;
+    grid-template-rows: 220px 50px;
+    grid-template-areas: "image" "stats";
+    border-radius: 18px;
+    background: whitesmoke;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+    text-align: center;
+
+
+    /* transitions */
+    transition: 0.5s ease;
+    cursor: pointer;
+    margin:20px;
+}
+
+.card:hover {
+    transform: scale(1.15);
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
+}
+
+.card-stats {
+    background: rgb(150, 150, 150);
+    color: white;
+}
+
+
+
+.card-action{
+    grid-area: image;
+    background: url("images/action.jpg");
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+}
+
+.card-comedy {
+    grid-area: image;
+    background: url("images/comedy.png");
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+}
+
+.card-adventure {
+    grid-area: image;
+    background: url("images/adventure.jpg");
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+}
+
+.card-thriller {
+    grid-area: image;
+    background: url("images/thriller.jpg");
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+}
+
+.card-horror {
+    grid-area: image;
+    background: url("images/horror.jpg");
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+}
+.card-documentary {
+    grid-area: image;
+    background: url("images/documentary.jpg");
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+}
+.card-classics {
+    grid-area: image;
+    background: url("images/classics.jpg");
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+}
+.card-kids {
+    grid-area: image;
+    background: url("images/kids.jpg");
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+}
+
+#Genres {
+    font-size: 2em;
+    color: whitesmoke;
+    text-align: center;
+
+}
+
