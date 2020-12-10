@@ -4,14 +4,12 @@ window.onload = function (){
     document.getElementById("searchInput").value = searchInput;
 
 
-$(document).ready(function(){
+    $(document).ready(function(){
     document.getElementById("Logo").onclick = function () {
         document.location = "index.html";
     }
     search();
-});
-
-
+    });
 
 
     function search() {
@@ -41,36 +39,5 @@ $(document).ready(function(){
             };
         });
     }
-
-
-
-
-
-
-
-    // function search() {
-    //     //document.getElementById("listings").innerHTML = "";
-    //     console.log("Received a search input of: " + searchInput);
-    //     $.getJSON("netflix-topshows.json", function (myData) {
-    //         for (let i = 0; i < 10; i++) {
-    //             var aListing = document.createElement("div");
-    //             aListing.id = "anElement";
-    //             aListing.innerHTML = (
-    //                     "<div id=image>"+
-    //                         "<img src='images/action.jpg'>"+
-    //                     "</div>" +
-    //                     "<div id='content'>" +
-    //                         "<h2>" + myData[i].title + " (" + myData[i].release_year + ")" + "</h2>" +
-    //                         "<p>" + "Genre: " + myData[i].listed_in + "</p>" +
-    //                         "<p>" + "Description: <br>" +  myData[i].description + "</p>" +
-    //                     "</div>"
-    //             );
-    //             $("#listings").append(aListing);
-    //         }
-    //         ;
-    //     });
-    // }
-
-
 }
 
