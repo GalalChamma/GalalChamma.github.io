@@ -23,16 +23,19 @@ window.onload = function (){
                 console.log ("comparing: " + search_lower + " AND " + title_lower);
                 if ((title_lower).includes(search_lower)){
                     console.log("match found!");
+                    var showID = (myData[i].show_id).toString();
                     var aListing = document.createElement("div");
                     aListing.id = "anElement";
                     aListing.innerHTML = (
                         "<div id=image>"+
-                        "<img src='images/action.jpg'>"+
+                        "<img src='images/netflix-thumbnail.jpg' "+
                         "</div>" +
                         "<div id='content'>" +
                         "<h2>" + myData[i].title + " (" + myData[i].release_year + ")" + "</h2>" +
                         "<p>" + "Genre: " + myData[i].listed_in + "</p>" +
                         "<p>" + "Description: <br>" +  myData[i].description + "</p>" +
+                        // creating a button that links to the show on Netflix
+                        "<a href=" + "https://www.netflix.com/title/" + showID +  " target='_blank'><button type='button' class='button' id='goToNetflix'>Watch</button></a>" +
                         "</div>");
                     $("#listings").append(aListing);
                 }

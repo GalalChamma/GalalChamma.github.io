@@ -1,4 +1,3 @@
-
 .Logo {
     text-align: center;
     display: block;
@@ -25,6 +24,10 @@
 textarea:focus, input:focus{
     outline: none;
 }
+button:focus {
+    outline: none;
+}
+
 
 .center {
     /* Add text-align property if needed to its own div*/
@@ -57,7 +60,6 @@ textarea:focus, input:focus{
 body {
     /* disables the black vertical line when clicking on text a.k.a the "caret" */
     -webkit-user-select: none;
-
 
     background: url("images/background.jpg");
     background-size: cover;
@@ -175,6 +177,5 @@ body {
     font-size: 2em;
     color: whitesmoke;
     text-align: center;
-
 }
 
