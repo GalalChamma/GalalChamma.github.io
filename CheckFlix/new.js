@@ -8,15 +8,11 @@ window.onload = function (){
         document.getElementById("Logo").onclick = function () {
             document.location = "index.html";
         }
-        document.getElementById("newAddedButton").onclick = function(){
-            newAdded();
-        };
+        newAdded();
     });
 
 
     function newAdded() {
-        //document.getElementById("listings").innerHTML = "";
-        console.log("Received a search input of: " + searchInput);
         $.getJSON("netflix-topshows.json", function (myData) {
             for (let i = 0; i < myData.length; i++) {
                 if(myData[i].release_year == 2020) {
