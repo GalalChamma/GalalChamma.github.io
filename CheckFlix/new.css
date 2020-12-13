@@ -72,8 +72,8 @@ body {
     display: none;
 }
 
-/* the listings container */
-#listings {
+/* the newAdditions container */
+#newAdditions {
     margin: 10px auto;
     width: 95%;
     /*border: 4px solid blue;*/
@@ -90,7 +90,7 @@ body {
 }
 
 /* thumbnail of show/movie */
-#listings div div img {
+#newAdditions div div img {
     /*border: 4px solid blue;*/
     margin-right: 15px;
     float: left;
@@ -98,7 +98,7 @@ body {
 }
 
 /* content or details of show/movie */
-#listings div #content {
+#newAdditions div #content {
     margin-left: 15px;
     display: block;
     margin: 2px 0 0 0;

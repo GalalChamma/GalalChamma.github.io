@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results</title>
+    <link href="new.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="new.js"></script>
+
+
+</head>
+<body>
+<div class="Logo" id="Logo">
+    <p><span class="Logo-Check">CHECK</span><span class="Logo-Flix">FLIX</span></p>
+</div>
+
+<main>
+    <form id="myForm" method="GET" action="search.html">
+        <div class="SearchRow">
+            <input type="text" class="SearchBar" id="searchInput" name="searchInputText" placeholder="Search by title name">
+            <input type="submit" value="Search"  class="mainButton" id="searchButton">
+            <button type="button" class="mainButton" id="newAddedButton">New</button>
+            <button type="button" class="mainButton" id="filterButton">Filter</button>
+        </div>
+    </form>
+    <p class="Logo-Flix" style="text-align: center">NEW ADDITIONS</p>
+    <div id="newAdditions"></div>
+
+</main>
+
+</div>
+</body>
+</html>
