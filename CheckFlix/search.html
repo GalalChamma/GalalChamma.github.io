@@ -24,6 +24,46 @@
             </div>
         </form>
 
+        <div class="filter-container">
+            <div class="filter-content">
+                <h2 id="filterHeader">Filter</h2>
+                <div class="filterSection">
+                    <fieldset>
+                        <legend>Genre</legend>
+                        <input type="checkbox" name="filterByGenre" value="Action">Action<br>
+                        <input type="checkbox" name="filterByGenre" value="Comedy">Comedy<br>
+                        <input type="checkbox" name="filterByGenre" value="Adventure">Adventure<br>
+                        <input type="checkbox" name="filterByGenre" value="Thriller">Thriller<br>
+                        <input type="checkbox" name="filterByGenre" value="Horror">Horror<br>
+                        <input type="checkbox" name="filterByGenre" value="Documentary">Documentary<br>
+                        <input type="checkbox" name="filterByGenre" value="Classics">Classics<br>
+                        <input type="checkbox" name="filterByGenre" value="Kids">Kids<br>
+                        <input type="checkbox" name="filterByGenre" value="International">International<br>
+                    </fieldset>
+                </div>
+                <div class="filterSection">
+                    <fieldset>
+                        <legend>Genre</legend>
+                        <input type="checkbox" name="genre" value="Action">Cats<br>
+                        <input type="checkbox" name="genre" value="Comedy">Dogs<br>
+                        <input type="checkbox" name="genre" value="Adventure">Birds<br>
+                        <input type="checkbox" name="genre" value="">Thriller<br>
+                        <input type="checkbox" name="genre" value="Dogs">Horror<br>
+                        <input type="checkbox" name="genre" value="Birds">Documentary<br>
+                        <input type="checkbox" name="genre" value="Action">Classics<br>
+                        <input type="checkbox" name="genre" value="Dogs">Kids<br>
+                        <input type="checkbox" name="genre" value="Birds">International<br>
+                    </fieldset>
+                </div>
+                <div class="filterButtonSection">
+                    <button type="button" class="mainButton" id="filterApply">Apply</button>
+                    <button type="button" class="mainButton" id="filterReset">Reset All</button>
+
+                </div>
+            </div>
+
+
+        </div>
         <div id="listings"></div>
 
     </main>
