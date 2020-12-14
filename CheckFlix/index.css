@@ -3,21 +3,18 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
-    text-align: center;
     cursor: pointer;
 }
 
 .Logo-Check {
     color: darkred;
     font-size: 2.5em;
-    font-family: 'Poppins', sans-serif;
     font-weight: bold;
 }
 
 .Logo-Flix {
     color: whitesmoke;
     font-size: 2.5em;
-    font-family: 'Poppins', sans-serif;
     font-weight: bold;
 }
 
@@ -48,13 +45,16 @@ button:focus {
     padding-right: 10px;
     font-size: 1em;
     width: 25%;
-    height: 30px;
+    height: 40px;
 }
 
 .mainButton {
-    height: 30px;
-    border-radius: 18px;
-
+    border-color: silver;
+    font-size: 1em;
+    font-weight: bold;
+    height: 45px;
+    border-radius: 10px;
+    display: inline-block;
 }
 
 body {
