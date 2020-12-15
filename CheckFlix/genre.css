@@ -1,3 +1,23 @@
+#searchInput {
+    display: none;
+}
+#genreHeader {
+    color: white;
+    font-size: 4em;
+}
+
+#filterButton {
+    width: 300px;
+    border-color: black;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5em;
+}
+
+#genreFilterz {
+    display: none;
+
+}
 .Logo {
     text-align: center;
     display: block;
@@ -142,6 +162,7 @@ legend {
     font-size: 2em;
     border-radius: 10px;
     font-weight: bold;
+    border-color: black;
 }
 
 

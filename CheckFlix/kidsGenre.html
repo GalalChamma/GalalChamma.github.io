@@ -9,7 +9,6 @@
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="kidsGenre.js"></script>
 
-
 </head>
 <body>
 <div class="Logo" id="Logo">
@@ -17,10 +16,10 @@
 </div>
 
 <main>
-    <form id="myForm" method="GET" action="genre.html">
+    <form id="myForm" method="GET" action="search.html">
         <div class="SearchRow">
+            <h1 id="genreHeader">Kids Genre</h1>
             <input type="text" class="SearchBar" id="searchInput" name="searchInputText" placeholder="Search by title name">
-            <input type="submit" value="Search"  class="mainButton" id="searchButton">
             <button type="button" class="mainButton" id="filterButton">Filter</button>
         </div>
     </form>
@@ -32,19 +31,19 @@
             <div class="filterSection">
                 <fieldset>
                     <legend>Type</legend>
-                    <input type="checkbox" name="titleType" value="TV Show">TV Show<br>
-                    <input type="checkbox" name="titleType" value="Movie">Movie<br>
+                    <input type="checkbox" class="largerCheckbox" name="titleType" value="TV Show">TV Show<br>
+                    <input type="checkbox" class="largerCheckbox" name="titleType" value="Movie">Movie<br>
                 </fieldset>
             </div>
-            <div class="filterSection">
+            <div class="filterSection" id="genreFilterz">
                 <fieldset>
                     <legend>Genre</legend>
-                    <input type="checkbox" class="largerCheckbox" name="filterByGenre" value="Action" checked>Action<br>
-                    <input type="checkbox" class="largerCheckbox" name="filterByGenre" value="Comedy">Comedy<br>
+                    <input type="checkbox" class="largerCheckbox" name="filterByGenre" value="Action">Action<br>
+                    <input type="checkbox" class="largerCheckbox" name="filterByGenre" value="Comed">Comedy<br>
                     <input type="checkbox" class="largerCheckbox" name="filterByGenre" value="Adventure">Adventure<br>
                     <input type="checkbox" class="largerCheckbox" name="filterByGenre" value="Thriller">Thriller<br>
                     <input type="checkbox" class="largerCheckbox" name="filterByGenre" value="Horror">Horror<br>
-                    <input type="checkbox" class="largerCheckbox" name="filterByGenre" value="Documentary">Documentary<br>
+                    <input type="checkbox" class="largerCheckbox" name="filterByGenre" value="Documenta">Documentary<br>
                     <input type="checkbox" class="largerCheckbox" name="filterByGenre" value="Classics">Classics<br>
                     <input type="checkbox" class="largerCheckbox" name="filterByGenre" value="Kids">Kids<br>
                     <input type="checkbox" class="largerCheckbox" name="filterByGenre" value="International">International<br>

@@ -26,6 +26,12 @@ button:focus {
 }
 
 
+#newAddedButton {
+    background-color: black;
+    color: gold;
+    border-color: gold;
+}
+
 .center {
     /* Add text-align property if needed to its own div*/
     display: block;

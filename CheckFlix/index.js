@@ -2,6 +2,9 @@ $(document).ready(function () {
         document.getElementById("Logo").onclick = function () {
             document.location = "index.html";
         }
+        document.getElementById("newAddedButton").onclick = function () {
+            document.location = "new.html";
+        }
         document.getElementById("actionCard").onclick = function () {
             document.location = "actionGenre.html";
         }

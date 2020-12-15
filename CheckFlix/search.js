@@ -8,7 +8,6 @@ const searchInput = params.get("searchInputText");
 
 $(document).ready(function() {
 
-
         document.getElementById("searchInput").value = searchInput;
         // const params = (new URL(document.location)).searchParams;
         // const searchInput = params.get("searchInputText");
@@ -38,8 +37,20 @@ $(document).ready(function() {
 
         // converting the data from JSON file to objects in array
         covertDataToObjects();
+
+        //disableCheckBoxes();
 });
 
+
+// function disableCheckBoxes() {
+//     var inputs = document.getElementsByName('movieDuration');
+//
+//     for (let i=0; i< inputs.length; i++) {
+//         inputs[i].disabled = true;
+//         inputs[i].classList.add("o_disabled");
+//     }
+//
+// }
 
 
 // converting JSON data to JS objects and adding them to an array
@@ -81,17 +92,22 @@ function search() {
             addTitleToList(all_listings[i], results_from_search);
             var showID = all_listings[i].show_id;
             var aListing = document.createElement("div");
+            if (all_listings[i].type.toString().toLowerCase().includes("movie")) {
+                var image = "images/movie-Thumbnail.jpg";
+            }
+            else {
+                image = "images/series-Thumbnail.jpg";
+            }
             aListing.id = "anElement";
             aListing.innerHTML = (
-                "<div id=image>" +
-                "<img src='images/netflix-thumbnail.jpg' " +
+                "<div id='listingThumbnailContainer'>" +
+                "<img id='thumbnail' src=" + image + " >" +
                 "</div>" +
                 "<div id='content'>" +
                 "<h2>" + all_listings[i].title + " (" + all_listings[i].release_year + ")" + "</h2>" +
                 "<p>" + "Genre: " + all_listings[i].listed_in + "</p>" +
                 "<p>" + "Duration: " + all_listings[i].duration + "</p>" +
                 "<p>" + "Rating: " + all_listings[i].rating + "</p>" +
-                "<p>" + "Type: " + all_listings[i].type + "</p>" +
                 "<p>" + "Description: <br>" + all_listings[i].description + "</p>" +
                 // creating a button that links to the show on Netflix
                 "<a href=" + "https://www.netflix.com/title/" + showID + " target='_blank'><button type='button' class='button' id='goToNetflix'>Watch</button></a>" +
@@ -298,20 +314,65 @@ function filter() {
             if (isDuration) {
                 var correctDuration = false;
                 console.log("looping through duration filters");
-                for (var x = 0; x < chosenMovieDurationFilter.length; x++) {
-                    chosenFilter = chosenMovieDurationFilter[x].toLowerCase();
-                    // if listing rating matches a chosen movie duration
-                    // The valueOf() method returns the primitive value of a String object to allow equality comparisons
-                    if (aListing_duration.valueOf()== (chosenFilter.valueOf())) {
-                        correctDuration = true;
+                if (aListing_type.toString().toLowerCase().includes("movie")) {
+                    // finding out the index of the first space character
+                    let index = aListing_duration.indexOf(' ');
+                    // fetching the duration string from first index to the index of the space and converting it to integer
+                    let duration_minutes = parseInt(aListing_duration.substring(0, index));
+                    for (var x = 0; x < chosenMovieDurationFilter.length; x++) {
+                        if (chosenMovieDurationFilter[x].valueOf() == "30To60") {
+                            if (duration_minutes < 61) {
+                                correctDuration = true;
+                            }
+                        } else if (chosenMovieDurationFilter[x].valueOf() == "60To90") {
+                            if (duration_minutes > 59 && duration_minutes < 91) {
+                                correctDuration = true;
+                            }
+                        } else if (chosenMovieDurationFilter[x].valueOf() == "90To120") {
+                            if (duration_minutes > 89 && duration_minutes < 121) {
+                                correctDuration = true;
+                            }
+                        } else if (chosenMovieDurationFilter[x].valueOf() == "120To150") {
+                            if (duration_minutes > 119 && duration_minutes < 151) {
+                                correctDuration = true;
+                            }
+                        } else if (chosenMovieDurationFilter[x].valueOf() == "150Plus") {
+                            if (duration_minutes > 149) {
+                                correctDuration = true;
+                            }
+                        }
                     }
                 }
-                for (var x = 0; x < chosenSeriesDurationFilter.length; x++) {
-                    chosenFilter = chosenSeriesDurationFilter[x].toLowerCase();
-                    // if listing rating matches a chosen series duration
+                // if title is a "series" type
+                else {
+                    let index = aListing_duration.indexOf(' ');
+                    // fetching the duration string from first index to the index of the space and converting it to integer
+                    let duration_season = parseInt(aListing_duration.substring(0, index));
+                    // if listing rating matches a chosen movie duration
                     // The valueOf() method returns the primitive value of a String object to allow equality comparisons
-                    if (aListing_duration.valueOf() == chosenFilter.valueOf()) {
-                        correctDuration = true;
+                    for (var x = 0; x < chosenSeriesDurationFilter.length; x++) {
+
+                        if (chosenSeriesDurationFilter[x].valueOf() == "1Season") {
+                            if (duration_season == 1) {
+                                correctDuration = true;
+                            }
+                        } else if (chosenSeriesDurationFilter[x].valueOf() == "2Seasons") {
+                            if (duration_season == 2) {
+                                correctDuration = true;
+                            }
+                        } else if (chosenSeriesDurationFilter[x].valueOf() == "3Seasons") {
+                            if (duration_season == 3) {
+                                correctDuration = true;
+                            }
+                        } else if (chosenSeriesDurationFilter[x].valueOf() == "4Seasons") {
+                            if (duration_season == 4) {
+                                correctDuration = true;
+                            }
+                        } else if (chosenSeriesDurationFilter[x].valueOf() == "5Seasons") {
+                            if (duration_season > 4) {
+                                correctDuration = true;
+                            }
+                        }
                     }
                 }
             }
@@ -327,12 +388,18 @@ function filter() {
         }
 
         for (let i = 0; i < filteredResults.length; i++) {
+            if (filteredResults[i].type.toString().toLowerCase().includes("movie")) {
+                var image = "images/movie-Thumbnail.jpg";
+            }
+            else {
+                image = "images/series-Thumbnail.jpg";
+            }
             var showID = filteredResults[i].show_id;
             var aListing = document.createElement("div");
             aListing.id = "anElement";
             aListing.innerHTML = (
-                "<div id=image>" +
-                "<img src='images/netflix-thumbnail.jpg' " +
+                "<div id='listingThumbnailContainer'>" +
+                "<img id='thumbnail' src=" + image + " >" +
                 "</div>" +
                 "<div id='content'>" +
                 "<h2>" + filteredResults[i].title + " (" + filteredResults[i].release_year + ")" + "</h2>" +
@@ -385,12 +452,18 @@ function resetFilter() {
     document.getElementById("listings").innerHTML = "";
 
     for (let i = 0; i < results_from_search.length; i++) {
+        if (results_from_search[i].type.toString().toLowerCase().includes("movie")) {
+            var image = "images/movie-Thumbnail.jpg";
+        }
+        else {
+            image = "images/series-Thumbnail.jpg";
+        }
         var showID = results_from_search[i].show_id;
         var aListing = document.createElement("div");
         aListing.id = "anElement";
         aListing.innerHTML = (
-            "<div id=image>" +
-            "<img src='images/netflix-thumbnail.jpg' " +
+            "<div id='listingThumbnailContainer'>" +
+            "<img id='thumbnail' src=" + image + " >" +
             "</div>" +
             "<div id='content'>" +
             "<h2>" + results_from_search[i].title + " (" + results_from_search[i].release_year + ")" + "</h2>" +
