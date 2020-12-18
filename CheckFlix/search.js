@@ -59,6 +59,7 @@ $(document).ready(function() {
         } else {
             displayResults(results_from_search, currentPage - 1);
         }
+
     });
     document.getElementById("prevPage2").addEventListener('click', function (){
         window.scrollTo(0, document.body.scrollHeight / 15);// Scrolls the page back to an appropriate position to view next page
