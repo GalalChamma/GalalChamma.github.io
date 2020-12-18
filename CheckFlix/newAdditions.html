@@ -8,31 +8,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link href="genre.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="classicsGenre.js"></script>
+    <script src="newAdditions.js"></script>
 </head>
 <body>
     <div class="Logo" id="Logo">
         <p><span class="Logo-Check">CHECK</span><span class="Logo-Flix">FLIX</span></p>
     </div>
 
-    <div id="navigationBar">
-        <nav>
-            <ul>
-                <li id="nav_allGenre" >All Genres</li>
-                <li id="nav_action" >Action</li>
-                <li id="nav_comedy">Comedy</li>
-                <li id="nav_adventure">Adventure</li>
-                <li id="nav_drama">Drama</li>
-                <li id="nav_crime">Crime</li>
-                <li id="nav_thriller">Thriller</li>
-                <li id="nav_horror">Horror</li>
-                <li id="nav_classics" class="pickedGenre">Classics</li>
-                <li id="nav_family">Family</li>
-                <li id="nav_documentary">Documentary</li>
-                <li id="nav_international">International</li>
-            </ul>
-        </nav>
-    </div>
     <main>
             <div class="pageHeaderContainer">
                 <div class="filterButtonContainer">
@@ -40,7 +22,7 @@
                 </div>
 
                 <div class="genreHeaderContainer">
-                    <h1 id="genreHeader">Classics Genre</h1>
+                    <h1 id="genreHeader">Titles Added In 2020</h1>
                 </div>
 
 
@@ -75,11 +57,13 @@
                         <input type="checkbox" class="largerCheckbox" name="filterByGenre" value="Action">Action<br>
                         <input type="checkbox" class="largerCheckbox" name="filterByGenre" value="Comed">Comedy<br>
                         <input type="checkbox" class="largerCheckbox" name="filterByGenre" value="Adventure">Adventure<br>
+                        <input type="checkbox" class="largerCheckbox" name="filterByGenre" value="Drama">Drama<br>
+                        <input type="checkbox" class="largerCheckbox" name="filterByGenre" value="Crime">Crime<br>
                         <input type="checkbox" class="largerCheckbox" name="filterByGenre" value="Thriller">Thriller<br>
                         <input type="checkbox" class="largerCheckbox" name="filterByGenre" value="Horror">Horror<br>
-                        <input type="checkbox" class="largerCheckbox" name="filterByGenre" value="Documen">Documentary<br>
                         <input type="checkbox" class="largerCheckbox" name="filterByGenre" value="Classic">Classics<br>
-                        <input type="checkbox" class="largerCheckbox" name="filterByGenre" value="Kid">Kids<br>
+                        <input type="checkbox" class="largerCheckbox" name="filterByGenre" value="Family">Family<br>
+                        <input type="checkbox" class="largerCheckbox" name="filterByGenre" value="Docum">Documentary<br>
                         <input type="checkbox" class="largerCheckbox" name="filterByGenre" value="International">International<br>
                     </fieldset>
                 </div>
@@ -156,7 +140,6 @@
                 </div>
             </div>
         </div>
-        <div id="numberOfResults"></div>
 
         <div class="pageNavigation">
             <button type="button" class="button-enabled" id="prevPage1">Previous</button>

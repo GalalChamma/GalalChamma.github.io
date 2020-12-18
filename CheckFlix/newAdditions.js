@@ -6,24 +6,20 @@ var sorted_results = [];
 var currentPage = 0;
 var filtered = false;
 
-var searchInput = "action";
+var searchInput = "2020";
 
 $(document).ready(function() {
+
     document.getElementById("Logo").onclick = function () {
         document.location = "index.html";
     }
 
     document.getElementById("filterApply").onclick = filter;
-    // document.getElementById("filterReset").onclick = resetFilter;
-    document.getElementById("filterReset").addEventListener('click', function(){
-        resetFilter();
-    });
+    document.getElementById("filterReset").onclick = resetFilter;
 
     // opening filter popup window when "filter" button is pressed
     document.getElementById("filterButton").onclick = function () {
         document.querySelector(".filter-container").style.display = "flex";
-        // scrolls back to top of page - in case the user was half way through when clicking the filter button
-        document.documentElement.scrollTop = 0;
         // disable scroll on webpage
         document.querySelector("body").style.overflow = "hidden";
     }
@@ -40,7 +36,7 @@ $(document).ready(function() {
         } else {
             displayResults(results_from_search, currentPage + 1);
         }
-    });
+    })
     document.getElementById("nextPage2").addEventListener('click', function (){
         window.scrollTo(0, document.body.scrollHeight / 9);// Scrolls the page back to an appropriate position to view next page
         if(filtered){
@@ -48,14 +44,14 @@ $(document).ready(function() {
         } else {
             displayResults(results_from_search, currentPage + 1);
         }
-    });
+    })
     document.getElementById("prevPage1").addEventListener('click', function (){
         if(filtered){
             displayResults(filtered_results, currentPage - 1);
         } else {
             displayResults(results_from_search, currentPage - 1);
         }
-    });
+    })
     document.getElementById("prevPage2").addEventListener('click', function (){
         window.scrollTo(0, document.body.scrollHeight / 9);// Scrolls the page back to an appropriate position to view next page
         if(filtered){
@@ -63,14 +59,14 @@ $(document).ready(function() {
         } else {
             displayResults(results_from_search, currentPage - 1);
         }
-    });
+    })
     document.getElementById("resetPage1").addEventListener('click', function (){
         if(filtered){
             displayResults(filtered_results, 0);
         } else {
             displayResults(results_from_search, 0);
         }
-    });
+    })
     document.getElementById("resetPage2").addEventListener('click', function (){
         window.scrollTo(0, document.body.scrollHeight / 9);// Scrolls the page back to an appropriate position to view next page
         if(filtered){
@@ -78,45 +74,8 @@ $(document).ready(function() {
         } else {
             displayResults(results_from_search, 0);
         }
-    });
+    })
 
-    // Nav Bar Genre Buttons
-    document.getElementById("nav_allGenre").addEventListener('click', function (){
-        changeGenre(this,"All Genres", "");
-    });
-    document.getElementById("nav_action").addEventListener('click', function (){
-        changeGenre(this,"Action Genre", "action");
-    });
-    document.getElementById("nav_comedy").addEventListener('click', function (){
-        changeGenre(this,"Comedy Genre", "comed");
-    });
-    document.getElementById("nav_adventure").addEventListener('click', function (){
-        changeGenre(this,"Adventure Genre", "adventure");
-    });
-    document.getElementById("nav_drama").addEventListener('click', function (){
-        changeGenre(this,"Drama Genre", "drama");
-    });
-    document.getElementById("nav_crime").addEventListener('click', function (){
-        changeGenre(this,"Crime Genre", "crime");
-    });
-    document.getElementById("nav_thriller").addEventListener('click', function (){
-        changeGenre(this,"Thriller Genre", "thriller");
-    });
-    document.getElementById("nav_horror").addEventListener('click', function (){
-        changeGenre(this,"Horror Genre", "horror");
-    });
-    document.getElementById("nav_classics").addEventListener('click', function (){
-        changeGenre(this,"Classics Genre", "classic");
-    });
-    document.getElementById("nav_family").addEventListener('click', function (){
-        changeGenre(this,"Family Genre", "family");
-    });
-    document.getElementById("nav_documentary").addEventListener('click', function (){
-        changeGenre(this,"Documentary Genre", "docum");
-    });
-    document.getElementById("nav_international").addEventListener('click', function (){
-        changeGenre(this,"International Genre", "international");
-    });
 
     document.getElementById("sortingMenu").onchange = sortListings;
 
@@ -185,6 +144,7 @@ function sortListings() {
         }
 
     } else if (chosenOption.includes("unsorted")) {
+        //console.log("unsooooorted");
         if (filtered) {
             displayResults(filtered_results, 0);
         } else {
@@ -193,6 +153,7 @@ function sortListings() {
     }
 
 }
+
 
 function compare_za(a, b) {
     // Use toUpperCase() to ignore character casing
@@ -250,6 +211,7 @@ function compare_OTN(a, b) {
     return comparison;
 }
 
+
 function highlight(pickedGenre) {
     genres = ["nav_allGenre", "nav_action","nav_comedy","nav_adventure","nav_drama","nav_crime","nav_thriller","nav_horror","nav_classics","nav_family","nav_documentary","nav_international"];
     for (let i = 0; i < genres.length; i++) {
@@ -263,6 +225,7 @@ function highlight(pickedGenre) {
 }
 
 function resetCheckboxes(type) {
+    //var x = ["seriesMaturityRating",movieMaturityRating seriesDuration movieDuration filterByYearReleased,filterByGenre];
     var type_filter = document.getElementsByName("titleType");
     var series_maturity = document.getElementsByName("seriesMaturityRating");
     var movie_maturity = document.getElementsByName("movieMaturityRating");
@@ -369,7 +332,7 @@ function search() {
     document.getElementById("listings").innerHTML = "";
     for (let i = 0; i < all_listings.length; i++) {
         var search_lower = searchInput.toString().toLowerCase();
-        var title_lower = (all_listings[i].listed_in).toString().toLowerCase();
+        var title_lower = (all_listings[i].date_added).toString().toLowerCase();
 
         // title matches the search
         if ((title_lower).includes(search_lower)) {
@@ -386,11 +349,10 @@ function displayFilters () {
     let seriesCheckbox = document.getElementById("seriesTypeCheckBox");
 
     movieCheckbox.addEventListener('change', function () {
-        //.style.display = "none";
         if (this.checked) {
             if (seriesCheckbox.checked) {
-                ////console.log("both of are checked");
-                document.getElementById("genreFilter").style.display = "none";
+                //console.log("both of are checked");
+                document.getElementById("genreFilter").style.display = "block";
                 document.getElementById("yearFilter").style.display = "block";
                 document.getElementById("m-durationFilter").style.display = "block";
                 document.getElementById("s-durationFilter").style.display = "block";
@@ -399,7 +361,7 @@ function displayFilters () {
             } else {
                 resetCheckboxes("series");
                 //console.log("only Movie is checked");
-                document.getElementById("genreFilter").style.display = "none";
+                document.getElementById("genreFilter").style.display = "block";
                 document.getElementById("yearFilter").style.display = "block";
                 document.getElementById("m-durationFilter").style.display = "block";
                 document.getElementById("s-durationFilter").style.display = "none";
@@ -410,7 +372,7 @@ function displayFilters () {
             if (seriesCheckbox.checked) {
                 resetCheckboxes("movie");
                 //console.log("only TV SHOW is checked");
-                document.getElementById("genreFilter").style.display = "none";
+                document.getElementById("genreFilter").style.display = "block";
                 document.getElementById("yearFilter").style.display = "block";
                 document.getElementById("m-durationFilter").style.display = "none";
                 document.getElementById("s-durationFilter").style.display = "block";
@@ -432,7 +394,7 @@ function displayFilters () {
         if (this.checked) {
             if (movieCheckbox.checked) {
                 //console.log("both of are checked");
-                document.getElementById("genreFilter").style.display = "none";
+                document.getElementById("genreFilter").style.display = "block";
                 document.getElementById("yearFilter").style.display = "block";
                 document.getElementById("m-durationFilter").style.display = "block";
                 document.getElementById("s-durationFilter").style.display = "block";
@@ -441,7 +403,7 @@ function displayFilters () {
             } else {
                 resetCheckboxes("movie");
                 //console.log("only TV SHOW is checked");
-                document.getElementById("genreFilter").style.display = "none";
+                document.getElementById("genreFilter").style.display = "block";
                 document.getElementById("yearFilter").style.display = "block";
                 document.getElementById("m-durationFilter").style.display = "none";
                 document.getElementById("s-durationFilter").style.display = "block";
@@ -452,7 +414,7 @@ function displayFilters () {
             if (movieCheckbox.checked) {
                 resetCheckboxes("series");
                 //console.log("only Movie is checked");
-                document.getElementById("genreFilter").style.display = "none";
+                document.getElementById("genreFilter").style.display = "block";
                 document.getElementById("yearFilter").style.display = "block";
                 document.getElementById("m-durationFilter").style.display = "block";
                 document.getElementById("s-durationFilter").style.display = "none";
@@ -472,14 +434,11 @@ function displayFilters () {
     });
 }
 
-
 function displayResults(array, pageNumber){
     // if only one page maximum is needed (1-10 listings)
     if (array.length == 0) {
         // disable the sort dropdown menu
         document.getElementById("sortingMenu").disabled = true;
-        // disable "numberOfResults" div which shows the number of results found
-        document.getElementById("numberOfResults").style.display = "none";
         //console.log("turning off navigation buttons");
         var nav = document.getElementsByClassName("pageNavigation");
         for (let i = 0; i < nav.length; i++) {
@@ -563,12 +522,7 @@ function displayResults(array, pageNumber){
             document.getElementById("prevPage2").classList.remove("button-disabled");
             document.getElementById("prevPage2").classList.add("button-enabled");
         }
-        document.getElementById("numberOfResults").style.display = "block";
-        if (array.length > 1) {
-            document.getElementById("numberOfResults").innerHTML = array.length + " results were found";
-        } else {
-            document.getElementById("numberOfResults").innerHTML = array.length + " result was found";
-        }
+
 
         var minIndex = currentPage * 10;
         var maxIndex = (currentPage * 10) + 9;
@@ -988,10 +942,6 @@ function addTitleToList(myTitle, myArray) {
 
 function resetFilter() {
     filtered = false;
-    // Reset sorting dropdown menu to default
-    document.getElementById("sortingMenu").selectedIndex = 0;
-    // Re-enable the sort dropdown menu if it was disabled prior
-    document.getElementById("sortingMenu").disabled = false;
     // re-enable scroll on webpage
     document.querySelector("body").style.overflow = "auto";
     // closing down the popup filter window

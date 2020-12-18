@@ -6,9 +6,13 @@ var sorted_results = [];
 var currentPage = 0;
 var filtered = false;
 
-var searchInput = "action";
+var searchInput = "";
 
 $(document).ready(function() {
+    // const params = (new URL(document.location)).searchParams;
+    // const searchInput = params.get("searchInputText");
+    // document.getElementById("searchInput").value = searchInput;
+
     document.getElementById("Logo").onclick = function () {
         document.location = "index.html";
     }
@@ -156,7 +160,7 @@ function sortListings() {
             sorted_results = results_from_search.slice().sort(compare_az);
             displayResults(sorted_results, 0);
         }
-    
+
     } else if (chosenOption.includes("title_za")) {
         if (filtered) {
             sorted_results = filtered_results.slice().sort(compare_za);
@@ -340,6 +344,7 @@ function resetCheckboxes(type) {
 
 // converting JSON data to JS objects and adding them to an array
 function covertDataToObjects () {
+    console.log("Entered the convertDataToObject method");
     $.getJSON("netflix-topshows.json", function (myData) {
         for (let i = 0; i < myData.length; i++) {
             var aTitle = {
@@ -367,6 +372,8 @@ function covertDataToObjects () {
 function search() {
     results_from_search = [];
     document.getElementById("listings").innerHTML = "";
+    console.log("Received a search input of: " + searchInput);
+    console.log("the size of all_listings is: " + all_listings.length);
     for (let i = 0; i < all_listings.length; i++) {
         var search_lower = searchInput.toString().toLowerCase();
         var title_lower = (all_listings[i].listed_in).toString().toLowerCase();
@@ -389,8 +396,8 @@ function displayFilters () {
         //.style.display = "none";
         if (this.checked) {
             if (seriesCheckbox.checked) {
-                ////console.log("both of are checked");
-                document.getElementById("genreFilter").style.display = "none";
+                console.log("both of are checked");
+                document.getElementById("genreFilter").style.display = "block";
                 document.getElementById("yearFilter").style.display = "block";
                 document.getElementById("m-durationFilter").style.display = "block";
                 document.getElementById("s-durationFilter").style.display = "block";
@@ -398,8 +405,8 @@ function displayFilters () {
                 document.getElementById("s-ratingFilter").style.display = "block";
             } else {
                 resetCheckboxes("series");
-                //console.log("only Movie is checked");
-                document.getElementById("genreFilter").style.display = "none";
+                console.log("only Movie is checked");
+                document.getElementById("genreFilter").style.display = "block";
                 document.getElementById("yearFilter").style.display = "block";
                 document.getElementById("m-durationFilter").style.display = "block";
                 document.getElementById("s-durationFilter").style.display = "none";
@@ -409,8 +416,8 @@ function displayFilters () {
         } else {
             if (seriesCheckbox.checked) {
                 resetCheckboxes("movie");
-                //console.log("only TV SHOW is checked");
-                document.getElementById("genreFilter").style.display = "none";
+                console.log("only TV SHOW is checked");
+                document.getElementById("genreFilter").style.display = "block";
                 document.getElementById("yearFilter").style.display = "block";
                 document.getElementById("m-durationFilter").style.display = "none";
                 document.getElementById("s-durationFilter").style.display = "block";
@@ -418,7 +425,7 @@ function displayFilters () {
                 document.getElementById("s-ratingFilter").style.display = "block";
             } else {
                 resetCheckboxes("both");
-                //console.log("both of are un-checked");
+                console.log("both of are un-checked");
                 document.getElementById("genreFilter").style.display = "none";
                 document.getElementById("yearFilter").style.display = "none";
                 document.getElementById("m-durationFilter").style.display = "none";
@@ -431,8 +438,8 @@ function displayFilters () {
     seriesCheckbox.addEventListener('change', function () {
         if (this.checked) {
             if (movieCheckbox.checked) {
-                //console.log("both of are checked");
-                document.getElementById("genreFilter").style.display = "none";
+                console.log("both of are checked");
+                document.getElementById("genreFilter").style.display = "block";
                 document.getElementById("yearFilter").style.display = "block";
                 document.getElementById("m-durationFilter").style.display = "block";
                 document.getElementById("s-durationFilter").style.display = "block";
@@ -440,8 +447,8 @@ function displayFilters () {
                 document.getElementById("s-ratingFilter").style.display = "block";
             } else {
                 resetCheckboxes("movie");
-                //console.log("only TV SHOW is checked");
-                document.getElementById("genreFilter").style.display = "none";
+                console.log("only TV SHOW is checked");
+                document.getElementById("genreFilter").style.display = "block";
                 document.getElementById("yearFilter").style.display = "block";
                 document.getElementById("m-durationFilter").style.display = "none";
                 document.getElementById("s-durationFilter").style.display = "block";
@@ -451,8 +458,8 @@ function displayFilters () {
         } else {
             if (movieCheckbox.checked) {
                 resetCheckboxes("series");
-                //console.log("only Movie is checked");
-                document.getElementById("genreFilter").style.display = "none";
+                console.log("only Movie is checked");
+                document.getElementById("genreFilter").style.display = "block";
                 document.getElementById("yearFilter").style.display = "block";
                 document.getElementById("m-durationFilter").style.display = "block";
                 document.getElementById("s-durationFilter").style.display = "none";
@@ -460,7 +467,7 @@ function displayFilters () {
                 document.getElementById("s-ratingFilter").style.display = "none";
             } else {
                 resetCheckboxes("both");
-                //console.log("both of are un-checked");
+                console.log("both of are un-checked");
                 document.getElementById("genreFilter").style.display = "none";
                 document.getElementById("yearFilter").style.display = "none";
                 document.getElementById("m-durationFilter").style.display = "none";
@@ -476,11 +483,8 @@ function displayFilters () {
 function displayResults(array, pageNumber){
     // if only one page maximum is needed (1-10 listings)
     if (array.length == 0) {
-        // disable the sort dropdown menu
-        document.getElementById("sortingMenu").disabled = true;
-        // disable "numberOfResults" div which shows the number of results found
         document.getElementById("numberOfResults").style.display = "none";
-        //console.log("turning off navigation buttons");
+        console.log("turning off navigation buttons");
         var nav = document.getElementsByClassName("pageNavigation");
         for (let i = 0; i < nav.length; i++) {
             nav[i].style.display = "none";
@@ -497,23 +501,20 @@ function displayResults(array, pageNumber){
             resetFilter();
         });
     } else {
+        console.log("we have an array size of : "  + array.length);
         if (array.length < 10) {
             var nav = document.getElementsByClassName("pageNavigation");
             for (let i = 0; i < nav.length; i++) {
                 nav[i].style.display = "none";
             }
-            // Re-enable the sort dropdown menu if it was disabled prior
-            document.getElementById("sortingMenu").disabled = false;
         }
         else{
             var nav = document.getElementsByClassName("pageNavigation");
             for (let i = 0; i < nav.length; i++) {
                 nav[i].style.display = "flex";
             }
-            // Re-enable the sort dropdown menu if it was disabled prior
-            document.getElementById("sortingMenu").disabled = false;
         }
-        //console.log("Displaying a total of " + array.length + " results.");
+        console.log("Displaying a total of " + array.length + " results.");
         var maxPageNumber;
         if (array.length % 10 == 0) {
             maxPageNumber = parseInt(array.length / 10, 10);
@@ -545,8 +546,8 @@ function displayResults(array, pageNumber){
             document.getElementById("prevPage2").classList.remove("button-enabled");
             document.getElementById("prevPage2").classList.add("button-disabled");
         } else {
-            //console.log("The Filter status is: " + filtered);
-            //console.log("The current page number is: " + currentPage);
+            console.log("The Filter status is: " + filtered);
+            console.log("The current page number is: " + currentPage);
             // "Return to first page" button
             document.getElementById("resetPage1").disabled = false;
             document.getElementById("resetPage1").classList.remove("button-disabled");
@@ -646,7 +647,7 @@ function filter() {
     for (let i = 0; i < genreCheckboxes.length; i++) {
         if (genreCheckboxes[i].checked) {
             isGenre = true;
-            //console.log("Pushing a picked genre filter of: " + genreCheckboxes[i].value.toString());
+            console.log("Pushing a picked genre filter of: " + genreCheckboxes[i].value.toString());
             chosenGenreFilters.push(genreCheckboxes[i].value.toString());
         }
     }
@@ -657,7 +658,7 @@ function filter() {
     for (let i = 0; i < typeCheckboxes.length; i++) {
         if (typeCheckboxes[i].checked) {
             isType = true;
-            //console.log("Adding a picked 'type' filter of: " + typeCheckboxes[i].value.toString());
+            console.log("Adding a picked 'type' filter of: " + typeCheckboxes[i].value.toString());
             chosenTypeFilters.push(typeCheckboxes[i].value.toString());
         }
     }
@@ -668,7 +669,7 @@ function filter() {
     for (let i = 0; i < yearCheckBoxes.length; i++) {
         if (yearCheckBoxes[i].checked) {
             isYearReleased = true;
-            //console.log("Adding a picked 'type' filter of: " + yearCheckBoxes[i].value.toString());
+            console.log("Adding a picked 'type' filter of: " + yearCheckBoxes[i].value.toString());
             chosenYearFilter.push(yearCheckBoxes[i].value.toString());
         }
     }
@@ -679,7 +680,7 @@ function filter() {
     for (let i = 0; i < movieRatingCheckBoxes.length; i++) {
         if (movieRatingCheckBoxes[i].checked) {
             isMovieRating = true;
-            //console.log("Adding a picked 'movie rating' filter of: " + movieRatingCheckBoxes[i].value.toString());
+            console.log("Adding a picked 'movie rating' filter of: " + movieRatingCheckBoxes[i].value.toString());
             chosenMovieRatingFilter.push(movieRatingCheckBoxes[i].value.toString());
         }
     }
@@ -690,7 +691,7 @@ function filter() {
     for (let i = 0; i < seriesRatingCheckBoxes.length; i++) {
         if (seriesRatingCheckBoxes[i].checked) {
             isSeriesRating = true;
-            //console.log("Adding a picked 'series rating' filter of: " + seriesRatingCheckBoxes[i].value.toString());
+            console.log("Adding a picked 'series rating' filter of: " + seriesRatingCheckBoxes[i].value.toString());
             chosenSeriesRatingFilter.push(seriesRatingCheckBoxes[i].value.toString());
         }
     }
@@ -701,7 +702,7 @@ function filter() {
     for (let i = 0; i < movieDurationCheckBoxes.length; i++) {
         if (movieDurationCheckBoxes[i].checked) {
             isMovieDuration = true;
-            //console.log("Adding a picked 'movie duration' filter of: " + movieDurationCheckBoxes[i].value.toString());
+            console.log("Adding a picked 'movie duration' filter of: " + movieDurationCheckBoxes[i].value.toString());
             chosenMovieDurationFilter.push(movieDurationCheckBoxes[i].value.toString());
         }
     }
@@ -712,7 +713,7 @@ function filter() {
     for (let i = 0; i < seriesDurationCheckBoxes.length; i++) {
         if (seriesDurationCheckBoxes[i].checked) {
             isSeriesDuration = true;
-            //console.log("Adding a picked 'series duration' filter of: " + seriesDurationCheckBoxes[i].value.toString());
+            console.log("Adding a picked 'series duration' filter of: " + seriesDurationCheckBoxes[i].value.toString());
             chosenSeriesDurationFilter.push(seriesDurationCheckBoxes[i].value.toString());
         }
     }
@@ -742,7 +743,7 @@ function filter() {
 
             // if at least one "genre" filter was chosen
             if (isGenre) {
-                //console.log("looping through genre filters");
+                console.log("looping through genre filters");
                 var correctGenre = false;
                 for (var x = 0; x < chosenGenreFilters.length; x++) {
                     var chosenFilter = chosenGenreFilters[x].toLowerCase();
@@ -759,7 +760,7 @@ function filter() {
             if (isType) {
                 var correctType = false;
                 // looping through type filters
-                //console.log("looping through type filters");
+                console.log("looping through type filters");
                 for (var x = 0; x < chosenTypeFilters.length; x++) {
                     chosenFilter = chosenTypeFilters[x].toLowerCase();
                     if (aListing_type.includes(chosenFilter)) {
@@ -774,9 +775,10 @@ function filter() {
             // if at least one "year" filter was chosen
             if (isYearReleased) {
                 var correctYearReleased = false;
-                //console.log("looping through year released filters");
+                console.log("looping through year released filters");
                 for (var x = 0; x < chosenYearFilter.length; x++) {
                     chosenFilter = chosenYearFilter[x].toLowerCase();
+                    // reversed to make this work quickly using the "value" attribute of the html element of the checkbox
                     if (chosenFilter == "2020") {
                         if (parseInt(aListing_yearReleased) == parseInt(chosenFilter)) {
                             correctYearReleased = true;
@@ -825,11 +827,11 @@ function filter() {
             // if atleast one "movie rating" filter was chosen
             if (isMovieRating) {
                 var correctMovieRating = false;
-                //console.log("looping through movie rating filters");
+                console.log("looping through movie rating filters");
                 if (aListing_type.includes("movie")) {
                     for (var x = 0; x < chosenMovieRatingFilter.length; x++) {
                         chosenFilter = chosenMovieRatingFilter[x].toLowerCase();
-                        //console.log("Comparing a filter of " + chosenFilter + " with a title rating of " + aListing_rating + " that a title of: " + alisting_title);
+                        console.log("Comparing a filter of " + chosenFilter + " with a title rating of " + aListing_rating + " that a title of: " + alisting_title);
                         // if listing rating matches a chosen movie rating
                         // The valueOf() method returns the primitive value of a String object to allow equality comparisons
                         if (aListing_rating.valueOf() == chosenFilter.valueOf()) {
@@ -847,11 +849,11 @@ function filter() {
             // if atleast one "series rating" filter was chosen
             if (isSeriesRating) {
                 var correctSeriesRating = false;
-                //console.log("looping through series rating filters");
+                console.log("looping through series rating filters");
                 if (aListing_type.includes("tv show")) {
                     for (var x = 0; x < chosenSeriesRatingFilter.length; x++) {
                         chosenFilter = chosenSeriesRatingFilter[x].toLowerCase();
-                        //console.log("Comparing a filter of " + chosenFilter + " with a title rating of " + aListing_rating + " that a title of: " + alisting_title);
+                        console.log("Comparing a filter of " + chosenFilter + " with a title rating of " + aListing_rating + " that a title of: " + alisting_title);
                         // if listing rating matches a chosen movie rating
                         // The valueOf() method returns the primitive value of a String object to allow equality comparisons
                         if (aListing_rating.valueOf() == chosenFilter.valueOf()) {
@@ -869,7 +871,7 @@ function filter() {
             // if at least one "movie duration" filter was chosen
             if (isMovieDuration) {
                 var correctMovieDuration = false;
-                //console.log("looping through movie duration filters");
+                console.log("looping through movie duration filters");
                 if (aListing_type.includes("movie")) {
                     // finding out the index of the first space character
                     let index = aListing_duration.indexOf(' ');
@@ -908,7 +910,7 @@ function filter() {
             // if at least one "series duration" filter was chosen
             if (isSeriesDuration) {
                 var correctSeriesDuration = false;
-                //console.log("looping through movie duration filters");
+                console.log("looping through movie duration filters");
                 if (aListing_type.includes("tv show")) {
                     let index = aListing_duration.indexOf(' ');
                     // fetching the duration string from first index to the index of the space and converting it to integer
@@ -988,10 +990,6 @@ function addTitleToList(myTitle, myArray) {
 
 function resetFilter() {
     filtered = false;
-    // Reset sorting dropdown menu to default
-    document.getElementById("sortingMenu").selectedIndex = 0;
-    // Re-enable the sort dropdown menu if it was disabled prior
-    document.getElementById("sortingMenu").disabled = false;
     // re-enable scroll on webpage
     document.querySelector("body").style.overflow = "auto";
     // closing down the popup filter window

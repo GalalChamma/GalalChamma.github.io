@@ -3,7 +3,7 @@ $(document).ready(function () {
             document.location = "index.html";
         }
         document.getElementById("newAddedButton").onclick = function () {
-            document.location = "new.html";
+            document.location = "newAdditions.html";
         }
         document.getElementById("actionCard").onclick = function () {
             document.location = "actionGenre.html";
@@ -26,8 +26,20 @@ $(document).ready(function () {
         document.getElementById("classicsCard").onclick = function () {
             document.location = "classicsGenre.html";
         }
-        document.getElementById("kidsCard").onclick = function () {
-            document.location = "kidsGenre.html";
+        document.getElementById("allGenresCard").onclick = function () {
+            document.location = "allGenres.html";
+        }
+        document.getElementById("dramaCard").onclick = function () {
+            document.location = "dramaGenre.html";
+        }
+        document.getElementById("crimeCard").onclick = function () {
+            document.location = "crimeGenre.html";
+        }
+        document.getElementById("internationalCard").onclick = function () {
+            document.location = "internationalGenre.html";
+        }
+        document.getElementById("familyCard").onclick = function () {
+            document.location = "familyGenre.html";
         }
 });
 

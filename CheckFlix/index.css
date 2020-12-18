@@ -7,7 +7,7 @@
 }
 
 .Logo-Check {
-    color: darkred;
+    color: red;
     font-size: 2.5em;
     font-weight: bold;
 }
@@ -18,18 +18,48 @@
     font-weight: bold;
 }
 
+#logo-description {
+    margin-top: -20px;
+    color: whitesmoke;
+    font-size: 20px;
+    font-weight: bold;
+}
 textarea:focus, input:focus{
     outline: none;
 }
+
 button:focus {
     outline: none;
 }
 
+.SearchBar{
+    border-radius: 18px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 500px;
+    height: 70px;
+    background-color: dimgrey;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    color: whitesmoke;
+    text-align: center;
+}
+#searchInput::placeholder{
+    color: lightgray;
+}
 
 #newAddedButton {
-    background-color: black;
+    font-family: 'Poppins', sans-serif;
+    background: rgb(15, 15, 20);
     color: gold;
     border-color: gold;
+    height: 50px;
+    width: 300px;
+    font-size: 25px;
+    margin-top: 30px;
+    border-radius: 10px;
+    font-weight: bold;
 }
 
 .center {
@@ -40,62 +70,42 @@ button:focus {
 }
 
 .SearchRow{
+    display: flex;
     font-size: 1em;
     text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     /*border: 3px solid green;*/
-}
-
-.SearchBar{
-    border-radius: 18px;
-    padding-left: 10px;
-    padding-right: 10px;
-    font-size: 1em;
-    width: 25%;
-    height: 40px;
-}
-
-.mainButton {
-    border-color: silver;
-    font-size: 1em;
-    font-weight: bold;
-    height: 45px;
-    border-radius: 10px;
-    display: inline-block;
 }
 
 body {
     /* disables the black vertical line when clicking on text a.k.a the "caret" */
     -webkit-user-select: none;
-
     background: url("images/background.jpg");
     background-size: cover;
     background-color: darkgrey;
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
+    background-attachment: fixed;
 }
 
-
 .cardShowcase {
-    margin-top: 100px;
-    width: 100%;
-    height: 100%;
-    display:block;
-    /*
+    width: 80%;
+    margin: -20px auto;
     display:flex;
     align-items: center;
     justify-content: center;
-     */
-
+    flex-wrap: wrap;
 }
 .card {
-    float: left;
     overflow: hidden;
     display: grid;
     grid-template-columns: 180px;
     grid-template-rows: 220px 50px;
     grid-template-areas: "image" "stats";
     border-radius: 18px;
-    background: whitesmoke;
+    background: black;
     box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
     text-align: center;
 
@@ -103,7 +113,7 @@ body {
     /* transitions */
     transition: 0.5s ease;
     cursor: pointer;
-    margin:20px;
+    margin:15px;
 }
 
 .card:hover {
@@ -112,11 +122,21 @@ body {
 }
 
 .card-stats {
-    background: rgb(150, 150, 150);
-    color: white;
+    background: rgb(15, 15, 20);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: gold;
+    font-size: 23px;
 }
 
-
+.card-allGenres {
+    grid-area: image;
+    background: url("images/all-genres1.jpg");
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+}
 
 .card-action{
     grid-area: image;
@@ -142,6 +162,22 @@ body {
     background-size: cover;
 }
 
+.card-drama {
+    grid-area: image;
+    background: url("images/drama.jpg");
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+}
+
+.card-crime {
+    grid-area: image;
+    background: url("images/crime.jpg");
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+}
+
 .card-thriller {
     grid-area: image;
     background: url("images/thriller.jpg");
@@ -157,13 +193,7 @@ body {
     border-top-right-radius: 15px;
     background-size: cover;
 }
-.card-documentary {
-    grid-area: image;
-    background: url("images/documentary.jpg");
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    background-size: cover;
-}
+
 .card-classics {
     grid-area: image;
     background: url("images/classics.jpg");
@@ -171,16 +201,33 @@ body {
     border-top-right-radius: 15px;
     background-size: cover;
 }
-.card-kids {
+.card-family {
     grid-area: image;
-    background: url("images/kids.jpg");
+    background: url("images/family.jpg");
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+}
+
+.card-documentary {
+    grid-area: image;
+    background: url("images/documentary.jpg");
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-size: cover;
+}
+.card-international {
+    grid-area: image;
+    background: url("images/international.jpg");
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     background-size: cover;
 }
 
 #Genres {
-    font-size: 2em;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 50px;
     color: whitesmoke;
     text-align: center;
 }

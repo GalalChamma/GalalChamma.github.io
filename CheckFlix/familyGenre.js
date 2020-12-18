@@ -6,7 +6,7 @@ var sorted_results = [];
 var currentPage = 0;
 var filtered = false;
 
-var searchInput = "action";
+var searchInput = "family";
 
 $(document).ready(function() {
     document.getElementById("Logo").onclick = function () {
@@ -156,7 +156,7 @@ function sortListings() {
             sorted_results = results_from_search.slice().sort(compare_az);
             displayResults(sorted_results, 0);
         }
-    
+
     } else if (chosenOption.includes("title_za")) {
         if (filtered) {
             sorted_results = filtered_results.slice().sort(compare_za);

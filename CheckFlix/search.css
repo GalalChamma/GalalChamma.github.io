@@ -1,3 +1,63 @@
+
+#filterButton {
+    margin-top: 50px;
+    font-size: 30px;
+    background-color: dimgrey;
+    color: gold;
+    width: 260px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 10px
+}
+#filterButton:hover {
+    background-color: rgb(150,150,150);
+}
+
+.searchBarContainer {
+    width: 33.33%;
+    margin: 0 auto;
+}
+.filterButtonContainer {
+    width: 33.33%;
+    margin: 0 auto;
+    text-align: center;
+    /* display property changed in javascript if results were found */
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+.sortContainer {
+    width: 33.33%;
+    color: gold;
+    font-size: 30px;
+    /* display property changed in javascript if results were found */
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#sortingMenu{
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    width: 300px;
+    padding: 8px 12px;
+    color: gold;
+    background-color: dimgrey;
+    border: 2px solid dimgrey;
+    cursor: pointer;
+    border-radius: 10px
+}
+
+#sortingMenu:focus{
+    outline: none;
+}
+#sortingMenu:hover {
+    background-color: rgb(150,150,150);
+}
+
+
 .Logo {
     text-align: center;
     display: block;
@@ -7,7 +67,7 @@
 }
 
 .Logo-Check {
-    color: darkred;
+    color: red;
     font-size: 2.5em;
     font-weight: bold;
 }
@@ -21,9 +81,28 @@
 textarea:focus, input:focus{
     outline: none;
 }
+
 button:focus {
     outline: none;
 }
+
+.SearchBar{
+    border-radius: 18px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 500px;
+    height: 70px;
+    background-color: dimgrey;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    color: whitesmoke;
+    text-align: center;
+}
+#searchInput::placeholder{
+    color: lightgray;
+}
+
 
 .center {
     /* Add text-align property if needed to its own div*/
@@ -33,27 +112,15 @@ button:focus {
 }
 
 .SearchRow{
+    display: flex;
     font-size: 1em;
     text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    /*border: 3px solid green;*/
 }
 
-.SearchBar{
-    border-radius: 18px;
-    padding-left: 10px;
-    padding-right: 10px;
-    font-size: 1em;
-    width: 25%;
-    height: 40px;
-}
-
-.mainButton {
-    border-color: silver;
-    font-size: 1em;
-    font-weight: bold;
-    height: 45px;
-    border-radius: 10px;
-    display: inline-block;
-}
 
 body {
     /* disables the black vertical line when clicking on text a.k.a the "caret" */
@@ -64,11 +131,11 @@ body {
     background-color: darkgrey;
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
-
+    background-attachment: fixed;
 }
 
 legend {
-    color: orangered;
+    color: gold;
 }
 
 .largerCheckbox {
@@ -117,9 +184,14 @@ legend {
     font-weight: normal;
     cursor: pointer;
 }
-
+.filterSection-OnlyForType{
+    float: left;
+    margin: 10px 10px 10px 10px;
+    width: 220px;
+}
 .filterSection {
-    float: right;
+    display: none;
+    float: left;
     margin: 10px 10px 10px 10px;
     width: 220px;
 }
@@ -134,15 +206,16 @@ legend {
 
 .myButton {
     margin: 10px;
-    background-color: lightgray;
-    color: black;
-    width: auto;
     height: auto;
     padding: 10px;
-    font-size: 2em;
-    border-radius: 10px;
+    margin-top: 50px;
+    font-size: 30px;
+    background-color: dimgrey;
+    color: gold;
+    width: 200px;
     font-weight: bold;
-    border-color: black;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 10px;
 }
 
 
@@ -152,14 +225,20 @@ legend {
     width: 95%;
     padding: 20px;
     overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#listingContainer{
+    width: 800px;
 }
 
 /* a single show/movie container */
 #anElement {
-    width: 47%;
     height: 430px;
-    float: left;
-    margin:  20px 20px;
+    margin:  10px 20px;
 }
 
 #listingThumbnailContainer {
@@ -172,39 +251,98 @@ legend {
     height: 400px;
 }
 
-#content {
-
+.pageNavigation {
+    /* display enabled by javascript if 10+ results were found */
+    display: none;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
 }
 
+#nextPage1, #nextPage2, #prevPage1, #prevPage1, #currentPage1, #currentPage2{
+    width: 200px;
+}
 
+#pageNum {
+    color: gold;
+}
 
 /* thumbnail of show/movie */
 #listings div div img {
     margin-right: 15px;
     float: left;
     width: 300px;
+    border-radius: 20px;
 }
 
 /* content or details of show/movie */
 #listings div #content {
-    margin-left: 15px;
     display: block;
     margin: 2px 0 0 0;
     color: whitesmoke;
-
 }
 
 #goToNetflix {
-    color: red;
+    color: gold;
     font-weight: bold;
-    background-color: grey;
+    background-color: dimgrey;
+    border: black solid 1px;
     font-size: 1.5em;
     width: 100px;
     height: 50px;
     border-radius: 18px;
+    font-family: 'Poppins', sans-serif;
+}
+#goToNetflix:hover {
+    background-color: rgb(150,150,150);
 }
 
-.o_disabled {
-    color: red;
-    border: green solid 3px;
+#currentPage1, #currentPage2 {
+    color: white;
+    font-size: 1.5em;
+}
+
+.button-disabled {
+    font-family: 'Poppins', sans-serif;
+    margin: 10px;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    font-size: 2em;
+    border-radius: 10px;
+    font-weight: bold;
+    background-color: gainsboro;
+    color: rgb(180,180,180);
+}
+
+.button-enabled {
+    font-family: 'Poppins', sans-serif;
+    margin: 10px;
+    background-color: dimgrey;
+    color: gold;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    font-size: 2em;
+    border-radius: 10px;
+    font-weight: bold;
+}
+.button-enabled:hover{
+    background-color: rgb(150,150,150);
+}
+
+#noneFound {
+    text-align: center;
+    font-size: 2em;
+    color: white;
+}
+
+#numberOfResults {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 2em;
+    color: white;
+}
+#resetPage2{
+    margin-left: 50px;
 }
