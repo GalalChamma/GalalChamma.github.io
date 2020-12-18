@@ -12,69 +12,94 @@
 <body>
     <div class="Logo" id="Logo">
         <p><span class="Logo-Check">CHECK</span><span class="Logo-Flix">FLIX</span></p>
+        <p id="logo-description">AN EASY & QUICK WAY TO CHECK NETFLIX TITLES</p>
     </div>
 
     <main>
+        <div>
         <form id="myForm" method="GET" action="search.html">
             <div class="SearchRow">
-                <input type="text" class="SearchBar" id="searchInput" name="searchInputText" placeholder="Search by title name">
-                <input type="submit" value="Search"  class="mainButton" id="searchButton">
-                <button type="button" class="mainButton" id="newAddedButton">New</button>
+                <div><input type="text" class="SearchBar" id="searchInput" name="searchInputText" placeholder="Search by title name"></div>
+                <div><button type="button" id="newAddedButton">View New Additions</button></div>
             </div>
         </form>
-
+        </div>
+        <div>
+        <h2 id="Genres">Genres</h2>
         <div class="cardShowcase">
-                <div>
-                    <h2 id="Genres">Genres</h2>
+            <div class="card"  id="allGenresCard">
+                <div class="card-allGenres"></div>
+                <div class="card-stats">
+                    <p>All Genres</p>
                 </div>
-                <div class="card">
+            </div>
+                <div class="card" id="actionCard">
                     <div class="card-action"></div>
                     <div class="card-stats">
                         <p>Action</p>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card" id="comedyCard">
                     <div class="card-comedy"></div>
                     <div class="card-stats">
                         <p>Comedy</p>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card" id="adventureCard">
                     <div class="card-adventure"></div>
                     <div class="card-stats">
                         <p>Adventure</p>
                     </div>
                 </div>
-                <div class="card">
+            <div class="card"  id="dramaCard">
+                <div class="card-drama"></div>
+                <div class="card-stats">
+                    <p>Drama</p>
+                </div>
+            </div>
+            <div class="card"  id="crimeCard">
+                <div class="card-crime"></div>
+                <div class="card-stats">
+                    <p>Crime</p>
+                </div>
+            </div>
+                <div class="card" id="thrillerCard">
                     <div class="card-thriller"></div>
                     <div class="card-stats">
                         <p>Thriller</p>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card" id="horrorCard">
                     <div class="card-horror"></div>
                     <div class="card-stats">
                         <p>Horror</p>
                     </div>
                 </div>
-                <div class="card">
+            <div class="card" id="classicsCard">
+                <div class="card-classics"></div>
+                <div class="card-stats">
+                    <p>Classics</p>
+                </div>
+            </div>
+            <div class="card"  id="familyCard">
+                <div class="card-family"></div>
+                <div class="card-stats">
+                    <p>Family</p>
+                </div>
+            </div>
+                <div class="card" id="documentaryCard">
                     <div class="card-documentary"></div>
                     <div class="card-stats">
                         <p>Documentary</p>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-classics"></div>
-                    <div class="card-stats">
-                        <p>Classics</p>
-                    </div>
+            <div class="card"  id="internationalCard">
+                <div class="card-international"></div>
+                <div class="card-stats">
+                    <p>International</p>
                 </div>
-                <div class="card">
-                    <div class="card-kids"></div>
-                    <div class="card-stats">
-                        <p>Kids</p>
-                    </div>
-                </div>
+            </div>
+        </div>
         </div>
     </main>
 </body>

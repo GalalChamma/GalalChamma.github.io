@@ -1,4 +1,21 @@
 
+.pageHeaderContainer {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+.filterButtonContainer {
+    width: 33.33%;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 #filterButton {
     margin-top: 50px;
     font-size: 30px;
@@ -13,25 +30,18 @@
     background-color: rgb(150,150,150);
 }
 
-.searchBarContainer {
-    width: 33.33%;
+.genreHeaderContainer {
     margin: 0 auto;
-}
-.filterButtonContainer {
+    color: orangered;
+    font-size: 30px;
     width: 33.33%;
-    margin: 0 auto;
-    text-align: center;
-    /* display property changed in javascript if results were found */
-    display: none;
-    align-items: center;
-    justify-content: center;
 }
+
 .sortContainer {
     width: 33.33%;
     color: gold;
     font-size: 30px;
-    /* display property changed in javascript if results were found */
-    display: none;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -81,44 +91,15 @@
 textarea:focus, input:focus{
     outline: none;
 }
-
 button:focus {
     outline: none;
 }
-
-.SearchBar{
-    border-radius: 18px;
-    padding-left: 10px;
-    padding-right: 10px;
-    width: 500px;
-    height: 70px;
-    background-color: dimgrey;
-    font-family: 'Poppins', sans-serif;
-    font-weight: bold;
-    font-size: 30px;
-    color: whitesmoke;
-    text-align: center;
-}
-#searchInput::placeholder{
-    color: lightgray;
-}
-
 
 .center {
     /* Add text-align property if needed to its own div*/
     display: block;
     margin-left: auto;
     margin-right: auto;
-}
-
-.SearchRow{
-    display: flex;
-    font-size: 1em;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    /*border: 3px solid green;*/
 }
 
 
@@ -216,6 +197,11 @@ legend {
     font-weight: bold;
     font-family: 'Poppins', sans-serif;
     border-radius: 10px;
+    border-color: black;
+}
+
+.myButton:hover {
+    background-color: rgb(150,150,150);
 }
 
 
@@ -238,7 +224,7 @@ legend {
 /* a single show/movie container */
 #anElement {
     height: 430px;
-    margin:  10px 20px;
+    margin:  20px 20px;
 }
 
 #listingThumbnailContainer {
@@ -252,16 +238,17 @@ legend {
 }
 
 .pageNavigation {
-    /* display enabled by javascript if 10+ results were found */
-    display: none;
+    display: flex;
     text-align: center;
     align-items: center;
     justify-content: center;
 }
 
 #nextPage1, #nextPage2, #prevPage1, #prevPage1, #currentPage1, #currentPage2{
-    width: 200px;
+  width: 200px;
 }
+
+
 
 #pageNum {
     color: gold;
@@ -280,12 +267,13 @@ legend {
     display: block;
     margin: 2px 0 0 0;
     color: whitesmoke;
+
 }
 
 #goToNetflix {
     color: gold;
     font-weight: bold;
-    background-color: dimgrey;
+    background-color: grey;
     border: black solid 1px;
     font-size: 1.5em;
     width: 100px;
@@ -303,7 +291,6 @@ legend {
 }
 
 .button-disabled {
-    font-family: 'Poppins', sans-serif;
     margin: 10px;
     width: auto;
     height: auto;
@@ -313,10 +300,10 @@ legend {
     font-weight: bold;
     background-color: gainsboro;
     color: rgb(180,180,180);
+    font-family: 'Poppins', sans-serif;
 }
 
 .button-enabled {
-    font-family: 'Poppins', sans-serif;
     margin: 10px;
     background-color: dimgrey;
     color: gold;
@@ -326,9 +313,56 @@ legend {
     font-size: 2em;
     border-radius: 10px;
     font-weight: bold;
+    font-family: 'Poppins', sans-serif;
 }
 .button-enabled:hover{
     background-color: rgb(150,150,150);
+}
+
+
+nav{
+    text-align: center;
+    width: 100%;
+    height: 60px;
+    margin: -10px auto;   /* this fixed the top empty area above the nav bar.. phew */
+    padding: 0 0 30px 0;
+    color: white;
+    list-style: none;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+nav ul li {
+    cursor: pointer;
+    float: left;
+    list-style: none;
+    position: relative;
+}
+
+nav ul li{
+    display: block;
+    color: white;
+    font-size: 1.2em;
+    /* this controls the right and left positioning of the navigation links */
+    padding: 0px 19px 0px 14px;
+    text-decoration: none;
+}
+
+nav ul li:hover{
+    display: block;
+    color: gold;
+}
+
+.pickedGenre {
+    color: orangered;
+    border-bottom:3px solid red;
+    padding-bottom:2px;
+}
+
+.pickedGenre:hover{
+    color: orangered;
 }
 
 #noneFound {
@@ -336,9 +370,7 @@ legend {
     font-size: 2em;
     color: white;
 }
-
 #numberOfResults {
-    margin-top: 30px;
     text-align: center;
     font-size: 2em;
     color: white;

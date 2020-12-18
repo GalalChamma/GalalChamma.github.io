@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,29 +6,45 @@
     <title>Search Results</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <link href="search.css" rel="stylesheet">
+    <link href="genre.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="search.js"></script>
-
-
+    <script src="crimeGenre.js"></script>
 </head>
 <body>
     <div class="Logo" id="Logo">
         <p><span class="Logo-Check">CHECK</span><span class="Logo-Flix">FLIX</span></p>
     </div>
 
+    <div id="navigationBar">
+        <nav>
+            <ul>
+                <li id="nav_allGenre" >All Genres</li>
+                <li id="nav_action" >Action</li>
+                <li id="nav_comedy">Comedy</li>
+                <li id="nav_adventure">Adventure</li>
+                <li id="nav_drama">Drama</li>
+                <li id="nav_crime" class="pickedGenre">Crime</li>
+                <li id="nav_thriller">Thriller</li>
+                <li id="nav_horror">Horror</li>
+                <li id="nav_classics">Classics</li>
+                <li id="nav_family">Family</li>
+                <li id="nav_documentary">Documentary</li>
+                <li id="nav_international">International</li>
+            </ul>
+        </nav>
+    </div>
     <main>
-        <form id="myForm" method="GET" action="search.html">
-            <div class="SearchRow">
-                <div class="filterButtonContainer" id="filterButtonContainer">
+            <div class="pageHeaderContainer">
+                <div class="filterButtonContainer">
                     <button type="button" id="filterButton">Filter</button>
                 </div>
 
-                <div class="searchBarContainer">
-                    <input type="text" class="SearchBar" id="searchInput" name="searchInputText" placeholder="Search by title name">
+                <div class="genreHeaderContainer">
+                    <h1 id="genreHeader">Crime Genre</h1>
                 </div>
 
-                <div class="sortContainer" id="sortContainer">
+
+                <div class="sortContainer">
                     <label for="sortingMenu">Sort By</label>
                     <select name="sortingMenu" id="sortingMenu">
                         <option value="unsorted" selected>Unsorted</option>
@@ -37,13 +54,13 @@
                         <option value="o_to_n">Oldest to Newest</option>
                     </select>
                 </div>
+
             </div>
 
-        </form>
 
         <div class="filter-container">
             <div class="filter-content">
-                <h2 id="filterHeader">Filter</h2>
+                <h2 id="filterHeader">Action Genre Filter</h2>
                 <div id="closeIcon">+</div>
                 <div class="filterSection-OnlyForType" id="typeFilter">
                     <fieldset>
@@ -58,13 +75,11 @@
                         <input type="checkbox" class="largerCheckbox" name="filterByGenre" value="Action">Action<br>
                         <input type="checkbox" class="largerCheckbox" name="filterByGenre" value="Comed">Comedy<br>
                         <input type="checkbox" class="largerCheckbox" name="filterByGenre" value="Adventure">Adventure<br>
-                        <input type="checkbox" class="largerCheckbox" name="filterByGenre" value="Drama">Drama<br>
-                        <input type="checkbox" class="largerCheckbox" name="filterByGenre" value="Crime">Crime<br>
                         <input type="checkbox" class="largerCheckbox" name="filterByGenre" value="Thriller">Thriller<br>
                         <input type="checkbox" class="largerCheckbox" name="filterByGenre" value="Horror">Horror<br>
+                        <input type="checkbox" class="largerCheckbox" name="filterByGenre" value="Documen">Documentary<br>
                         <input type="checkbox" class="largerCheckbox" name="filterByGenre" value="Classic">Classics<br>
-                        <input type="checkbox" class="largerCheckbox" name="filterByGenre" value="Family">Family<br>
-                        <input type="checkbox" class="largerCheckbox" name="filterByGenre" value="Docum">Documentary<br>
+                        <input type="checkbox" class="largerCheckbox" name="filterByGenre" value="Kid">Kids<br>
                         <input type="checkbox" class="largerCheckbox" name="filterByGenre" value="International">International<br>
                     </fieldset>
                 </div>
@@ -141,8 +156,8 @@
                 </div>
             </div>
         </div>
-
         <div id="numberOfResults"></div>
+
         <div class="pageNavigation">
             <button type="button" class="button-enabled" id="prevPage1">Previous</button>
             <p id="currentPage1"></p>

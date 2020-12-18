@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,11 +6,9 @@
     <title>Search Results</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <link href="search.css" rel="stylesheet">
+    <link href="genre.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="search.js"></script>
-
-
+    <script src="newAdditions.js"></script>
 </head>
 <body>
     <div class="Logo" id="Logo">
@@ -17,17 +16,17 @@
     </div>
 
     <main>
-        <form id="myForm" method="GET" action="search.html">
-            <div class="SearchRow">
-                <div class="filterButtonContainer" id="filterButtonContainer">
+            <div class="pageHeaderContainer">
+                <div class="filterButtonContainer">
                     <button type="button" id="filterButton">Filter</button>
                 </div>
 
-                <div class="searchBarContainer">
-                    <input type="text" class="SearchBar" id="searchInput" name="searchInputText" placeholder="Search by title name">
+                <div class="genreHeaderContainer">
+                    <h1 id="genreHeader">Titles Added In 2020</h1>
                 </div>
 
-                <div class="sortContainer" id="sortContainer">
+
+                <div class="sortContainer">
                     <label for="sortingMenu">Sort By</label>
                     <select name="sortingMenu" id="sortingMenu">
                         <option value="unsorted" selected>Unsorted</option>
@@ -37,13 +36,13 @@
                         <option value="o_to_n">Oldest to Newest</option>
                     </select>
                 </div>
+
             </div>
 
-        </form>
 
         <div class="filter-container">
             <div class="filter-content">
-                <h2 id="filterHeader">Filter</h2>
+                <h2 id="filterHeader">Action Genre Filter</h2>
                 <div id="closeIcon">+</div>
                 <div class="filterSection-OnlyForType" id="typeFilter">
                     <fieldset>
@@ -142,7 +141,6 @@
             </div>
         </div>
 
-        <div id="numberOfResults"></div>
         <div class="pageNavigation">
             <button type="button" class="button-enabled" id="prevPage1">Previous</button>
             <p id="currentPage1"></p>
