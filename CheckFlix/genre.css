@@ -238,7 +238,7 @@ legend {
 }
 
 .pageNavigation {
-    display: flex;
+    display: none;
     text-align: center;
     align-items: center;
     justify-content: center;
