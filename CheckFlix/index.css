@@ -38,7 +38,7 @@ button:focus {
     padding-right: 10px;
     width: 500px;
     height: 70px;
-    background-color: dimgrey;
+    background-color: rgb(15, 15, 20);
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
     font-size: 30px;
@@ -50,6 +50,7 @@ button:focus {
 }
 
 #newAddedButton {
+    cursor: pointer;
     font-family: 'Poppins', sans-serif;
     background: rgb(15, 15, 20);
     color: gold;
@@ -128,6 +129,9 @@ body {
     justify-content: center;
     color: gold;
     font-size: 23px;
+}
+#newAddedButton:hover {
+    background: rgb(25, 25, 35);
 }
 
 .card-allGenres {

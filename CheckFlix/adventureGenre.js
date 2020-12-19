@@ -610,7 +610,7 @@ function displayResults(array, pageNumber){
                     "<img id='thumbnail' src=" + image + " >" +
                     "</div>" +
                     "<div id='content'>" +
-                    "<h2>" + array[i].title + " (" + array[i].release_year + ")" + "</h2>" +
+                    "<h2>" + "<span id='title'>" + array[i].title + "</span>" + " (" + array[i].release_year + ")" + "</h2>" +
                     "<p>" + "Genre: " + array[i].listed_in + "</p>" +
                     "<p>" + "Duration: " + array[i].duration + "</p>" +
                     "<p>" + "Rating: " + array[i].rating + "</p>" +

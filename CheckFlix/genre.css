@@ -17,17 +17,20 @@
 }
 
 #filterButton {
+    cursor: pointer;
     margin-top: 50px;
     font-size: 30px;
-    background-color: dimgrey;
+    background: rgb(15, 15, 20);
     color: gold;
     width: 260px;
     font-weight: bold;
     font-family: 'Poppins', sans-serif;
+    border: rgb(15, 15, 20) 2px solid;
     border-radius: 10px
+
 }
 #filterButton:hover {
-    background-color: rgb(150,150,150);
+    background-color: rgb(50, 50, 60);
 }
 
 .genreHeaderContainer {
@@ -54,8 +57,8 @@
     width: 300px;
     padding: 8px 12px;
     color: gold;
-    background-color: dimgrey;
-    border: 2px solid dimgrey;
+    background: rgb(15, 15, 20);
+    border: 2px solid rgb(15, 15, 20);
     cursor: pointer;
     border-radius: 10px
 }
@@ -64,7 +67,7 @@
     outline: none;
 }
 #sortingMenu:hover {
-    background-color: rgb(150,150,150);
+    background-color: rgb(50, 50, 60);
 }
 
 
@@ -144,16 +147,14 @@ legend {
 }
 
 .filter-content {
-    border: white solid 3px;
-    color: white;
+    border: whitesmoke solid 3px;
+    color: whitesmoke;
     width: 1000px;
     height: 750px;
-    background-color: rgba(50,50,50,1);
+    background-color: rgba(50, 50, 60, 1);
     border-radius: 20px;
     position: relative;
     display: block;
-
-    /*text-align: center;*/
 }
 
 #closeIcon{
@@ -165,6 +166,7 @@ legend {
     font-weight: normal;
     cursor: pointer;
 }
+
 .filterSection-OnlyForType{
     float: left;
     margin: 10px 10px 10px 10px;
@@ -186,12 +188,13 @@ legend {
 
 
 .myButton {
+    cursor: pointer;
     margin: 10px;
     height: auto;
     padding: 10px;
     margin-top: 50px;
     font-size: 30px;
-    background-color: dimgrey;
+    background: rgb(15, 15, 20);
     color: gold;
     width: 200px;
     font-weight: bold;
@@ -201,7 +204,7 @@ legend {
 }
 
 .myButton:hover {
-    background-color: rgb(150,150,150);
+    background-color: rgb(50, 50, 60);
 }
 
 
@@ -245,7 +248,7 @@ legend {
 }
 
 #nextPage1, #nextPage2, #prevPage1, #prevPage1, #currentPage1, #currentPage2{
-  width: 200px;
+    width: 200px;
 }
 
 
@@ -273,7 +276,7 @@ legend {
 #goToNetflix {
     color: gold;
     font-weight: bold;
-    background-color: grey;
+    background: rgb(15, 15, 20);
     border: black solid 1px;
     font-size: 1.5em;
     width: 100px;
@@ -282,7 +285,7 @@ legend {
     font-family: 'Poppins', sans-serif;
 }
 #goToNetflix:hover {
-    background-color: rgb(150,150,150);
+    background-color: rgb(50, 50, 60);
 }
 
 #currentPage1, #currentPage2 {
@@ -298,14 +301,15 @@ legend {
     font-size: 2em;
     border-radius: 10px;
     font-weight: bold;
-    background-color: gainsboro;
+    background-color: gray;
     color: rgb(180,180,180);
     font-family: 'Poppins', sans-serif;
 }
 
 .button-enabled {
     margin: 10px;
-    background-color: dimgrey;
+    background-color: rgb(15, 15, 20);
+    border: 3px solid rgb(15, 15, 20);
     color: gold;
     width: auto;
     height: auto;
@@ -316,7 +320,7 @@ legend {
     font-family: 'Poppins', sans-serif;
 }
 .button-enabled:hover{
-    background-color: rgb(150,150,150);
+    background-color: rgb(50, 50, 60);
 }
 
 
@@ -377,4 +381,8 @@ nav ul li:hover{
 }
 #resetPage2{
     margin-left: 50px;
+}
+
+#title {
+    color: gold;
 }
