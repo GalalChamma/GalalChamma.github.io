@@ -36,7 +36,7 @@
     <main>
             <div class="pageHeaderContainer">
                 <div class="filterButtonContainer">
-                    <button type="button" id="filterButton">Filter</button>
+                    <button type="button" id="filterButton" disabled>Filter</button>
                 </div>
 
                 <div class="genreHeaderContainer">
@@ -46,7 +46,7 @@
 
                 <div class="sortContainer">
                     <label for="sortingMenu">Sort By</label>
-                    <select name="sortingMenu" id="sortingMenu">
+                    <select name="sortingMenu" id="sortingMenu" disabled>
                         <option value="unsorted" selected>Unsorted</option>
                         <option value="title_az">Title A-Z</option>
                         <option value="title_za">Title Z-A</option>
@@ -62,7 +62,7 @@
             <div class="filter-content">
                 <h2 id="filterHeader">Action Genre Filter</h2>
                 <div id="closeIcon">+</div>
-                <div class="filterSection-OnlyForType" id="typeFilter">
+                <div class="filterSection-OnlyForType" id="typeFilter" >
                     <fieldset>
                         <legend>Type</legend>
                         <input type="checkbox" id="seriesTypeCheckBox" class="largerCheckbox" name="titleType" value="TV Show">Series<br>

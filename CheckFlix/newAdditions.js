@@ -5,6 +5,7 @@ var filtered_results = [];
 var sorted_results = [];
 var currentPage = 0;
 var filtered = false;
+var sorted = false;
 
 var searchInput = "2020";
 
@@ -31,50 +32,62 @@ $(document).ready(function() {
     }
 
     document.getElementById("nextPage1").addEventListener('click', function (){
-        if(filtered){
+        if (sorted) {
+            displayResults(sorted_results, currentPage + 1);
+        } else if (filtered){
             displayResults(filtered_results, currentPage + 1);
         } else {
             displayResults(results_from_search, currentPage + 1);
         }
-    })
+    });
     document.getElementById("nextPage2").addEventListener('click', function (){
         window.scrollTo(0, document.body.scrollHeight / 9);// Scrolls the page back to an appropriate position to view next page
-        if(filtered){
+        if (sorted) {
+            displayResults(sorted_results, currentPage + 1);
+        } else if (filtered){
             displayResults(filtered_results, currentPage + 1);
         } else {
             displayResults(results_from_search, currentPage + 1);
         }
-    })
+    });
     document.getElementById("prevPage1").addEventListener('click', function (){
-        if(filtered){
+        if (sorted) {
+            displayResults(sorted_results, currentPage - 1);
+        } else if (filtered){
             displayResults(filtered_results, currentPage - 1);
         } else {
             displayResults(results_from_search, currentPage - 1);
         }
-    })
+    });
     document.getElementById("prevPage2").addEventListener('click', function (){
         window.scrollTo(0, document.body.scrollHeight / 9);// Scrolls the page back to an appropriate position to view next page
-        if(filtered){
+        if (sorted) {
+            displayResults(sorted_results, currentPage - 1);
+        } else if (filtered){
             displayResults(filtered_results, currentPage - 1);
         } else {
             displayResults(results_from_search, currentPage - 1);
         }
-    })
+    });
     document.getElementById("resetPage1").addEventListener('click', function (){
-        if(filtered){
+        if (sorted) {
+            displayResults(sorted_results, 0);
+        } else if (filtered){
             displayResults(filtered_results, 0);
         } else {
             displayResults(results_from_search, 0);
         }
-    })
+    });
     document.getElementById("resetPage2").addEventListener('click', function (){
         window.scrollTo(0, document.body.scrollHeight / 9);// Scrolls the page back to an appropriate position to view next page
-        if(filtered){
+        if (sorted) {
+            displayResults(sorted_results, 0);
+        } else if (filtered){
             displayResults(filtered_results, 0);
         } else {
             displayResults(results_from_search, 0);
         }
-    })
+    });
 
 
     document.getElementById("sortingMenu").onchange = sortListings;
@@ -108,6 +121,7 @@ function sortListings() {
     var chosenOption = this.value.toString();
 
     if (chosenOption.includes("title_az")) {
+        sorted = true;
         if (filtered) {
             sorted_results = filtered_results.slice().sort(compare_az);
             displayResults(sorted_results, 0);
@@ -115,8 +129,9 @@ function sortListings() {
             sorted_results = results_from_search.slice().sort(compare_az);
             displayResults(sorted_results, 0);
         }
-    
+
     } else if (chosenOption.includes("title_za")) {
+        sorted = true;
         if (filtered) {
             sorted_results = filtered_results.slice().sort(compare_za);
             displayResults(sorted_results, 0);
@@ -126,6 +141,7 @@ function sortListings() {
         }
 
     } else if (chosenOption.includes("n_to_o")) {
+        sorted = true;
         if (filtered) {
             sorted_results = filtered_results.slice().sort(compare_NTO);
             displayResults(sorted_results, 0);
@@ -135,6 +151,7 @@ function sortListings() {
         }
 
     } else if (chosenOption.includes("o_to_n")) {
+        sorted = true;
         if (filtered) {
             sorted_results = filtered_results.slice().sort(compare_OTN);
             displayResults(sorted_results, 0);
@@ -144,14 +161,13 @@ function sortListings() {
         }
 
     } else if (chosenOption.includes("unsorted")) {
-        //console.log("unsooooorted");
+        sorted = false;
         if (filtered) {
             displayResults(filtered_results, 0);
         } else {
             displayResults(results_from_search, 0);
         }
     }
-
 }
 
 
@@ -439,6 +455,7 @@ function displayResults(array, pageNumber){
     if (array.length == 0) {
         // disable the sort dropdown menu
         document.getElementById("sortingMenu").disabled = true;
+        document.getElementById("filterButton").disabled = true;
         //console.log("turning off navigation buttons");
         var nav = document.getElementsByClassName("pageNavigation");
         for (let i = 0; i < nav.length; i++) {
@@ -463,6 +480,7 @@ function displayResults(array, pageNumber){
             }
             // Re-enable the sort dropdown menu if it was disabled prior
             document.getElementById("sortingMenu").disabled = false;
+            document.getElementById("filterButton").disabled = false;
         }
         else{
             var nav = document.getElementsByClassName("pageNavigation");
@@ -471,6 +489,7 @@ function displayResults(array, pageNumber){
             }
             // Re-enable the sort dropdown menu if it was disabled prior
             document.getElementById("sortingMenu").disabled = false;
+            document.getElementById("filterButton").disabled = false;
         }
         //console.log("Displaying a total of " + array.length + " results.");
         var maxPageNumber;
@@ -679,6 +698,11 @@ function filter() {
 
     // if at least one filter of any kind is chosen
     if (aFilterChosen) {
+        // reset sort menu to have the first option chosen (unsorted option)
+        document.getElementById("sortingMenu").selectedIndex = 0;
+        // set sorted as false so when nextpage and prevpage is used, the proper array is used
+        sorted = false;
+        // filtered set to true to allow the use of the correct array
         filtered = true;
         // making a temporary array to hold the objects after the results_from_search array has been filtered by the users choices
         filtered_results = [];
@@ -942,6 +966,10 @@ function addTitleToList(myTitle, myArray) {
 
 function resetFilter() {
     filtered = false;
+    // Reset sorting dropdown menu to default at first index
+    document.getElementById("sortingMenu").selectedIndex = 0;
+    // Re-enable the sort dropdown menu if it was disabled prior
+    document.getElementById("sortingMenu").disabled = false;
     // re-enable scroll on webpage
     document.querySelector("body").style.overflow = "auto";
     // closing down the popup filter window

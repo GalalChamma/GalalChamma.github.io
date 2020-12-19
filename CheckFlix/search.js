@@ -4,6 +4,7 @@ var results_from_search = [];
 var filtered_results = [];
 var currentPage = 0;
 var filtered = false;
+var sorted = false;
 
 const params = (new URL(document.location)).searchParams;
 const searchInput = params.get("searchInputText");
@@ -39,46 +40,57 @@ $(document).ready(function() {
     }
 
     document.getElementById("nextPage1").addEventListener('click', function (){
-        if(filtered){
+        if (sorted) {
+            displayResults(sorted_results, currentPage + 1);
+        } else if (filtered){
             displayResults(filtered_results, currentPage + 1);
         } else {
             displayResults(results_from_search, currentPage + 1);
         }
     });
     document.getElementById("nextPage2").addEventListener('click', function (){
-        window.scrollTo(0, document.body.scrollHeight / 15);// Scrolls the page back to an appropriate position to view next page
-        if(filtered){
+        window.scrollTo(0, document.body.scrollHeight / 9);// Scrolls the page back to an appropriate position to view next page
+        if (sorted) {
+            displayResults(sorted_results, currentPage + 1);
+        } else if (filtered){
             displayResults(filtered_results, currentPage + 1);
         } else {
             displayResults(results_from_search, currentPage + 1);
         }
     });
     document.getElementById("prevPage1").addEventListener('click', function (){
-        if(filtered){
+        if (sorted) {
+            displayResults(sorted_results, currentPage - 1);
+        } else if (filtered){
             displayResults(filtered_results, currentPage - 1);
         } else {
             displayResults(results_from_search, currentPage - 1);
         }
-
     });
     document.getElementById("prevPage2").addEventListener('click', function (){
-        window.scrollTo(0, document.body.scrollHeight / 15);// Scrolls the page back to an appropriate position to view next page
-        if(filtered){
+        window.scrollTo(0, document.body.scrollHeight / 9);// Scrolls the page back to an appropriate position to view next page
+        if (sorted) {
+            displayResults(sorted_results, currentPage - 1);
+        } else if (filtered){
             displayResults(filtered_results, currentPage - 1);
         } else {
             displayResults(results_from_search, currentPage - 1);
         }
     });
     document.getElementById("resetPage1").addEventListener('click', function (){
-        if(filtered){
+        if (sorted) {
+            displayResults(sorted_results, 0);
+        } else if (filtered){
             displayResults(filtered_results, 0);
         } else {
             displayResults(results_from_search, 0);
         }
     });
     document.getElementById("resetPage2").addEventListener('click', function (){
-        window.scrollTo(0, document.body.scrollHeight / 15);// Scrolls the page back to an appropriate position to view next page
-        if(filtered){
+        window.scrollTo(0, document.body.scrollHeight / 9);// Scrolls the page back to an appropriate position to view next page
+        if (sorted) {
+            displayResults(sorted_results, 0);
+        } else if (filtered){
             displayResults(filtered_results, 0);
         } else {
             displayResults(results_from_search, 0);
@@ -323,7 +335,7 @@ function displayResults(array, pageNumber){
             for (let i = 0; i < nav.length; i++) {
                 nav[i].style.display = "none";
             }
-            document.getElementById("filterButtonContainer").style.display = "flex";
+             document.getElementById("filterButtonContainer").style.display = "flex";
              document.getElementById("sortContainer").style.display = "flex";
              document.getElementById("sortingMenu").disabled = false;
         }
@@ -541,7 +553,6 @@ function filter() {
     }
 
 
-
     // checking if ANY filter was chosen
     if (isGenre || isType || isYearReleased || isMovieRating || isSeriesRating || isMovieDuration || isMovieDuration ) {
         aFilterChosen = true;
@@ -549,6 +560,11 @@ function filter() {
 
     // if at least one filter of any kind is chosen
     if (aFilterChosen) {
+        // reset sort menu to have the first option chosen (unsorted option)
+        document.getElementById("sortingMenu").selectedIndex = 0;
+        // set sorted as false so when nextpage and prevpage is used, the proper array is used
+        sorted = false;
+        // filtered set to true to allow the use of the correct array
         filtered = true;
         // making a temporary array to hold the objects after the results_from_search array has been filtered by the users choices
         filtered_results = [];
@@ -601,7 +617,6 @@ function filter() {
                 //console.log("looping through year released filters");
                 for (var x = 0; x < chosenYearFilter.length; x++) {
                     chosenFilter = chosenYearFilter[x].toLowerCase();
-                    // reversed to make this work quickly using the "value" attribute of the html element of the checkbox
                     if (chosenFilter == "2020") {
                         if (parseInt(aListing_yearReleased) == parseInt(chosenFilter)) {
                             correctYearReleased = true;
@@ -614,28 +629,27 @@ function filter() {
                         if (parseInt(aListing_yearReleased) == parseInt(chosenFilter)) {
                             correctYearReleased = true;
                         }
-
-                    } else if (chosenFilter == "2017") {
+                    } else if (chosenFilter.valueOf() == "2017".valueOf()) {
                         if (parseInt(aListing_yearReleased) == parseInt(chosenFilter)) {
                             correctYearReleased = true;
                         }
-                    } else if (chosenFilter == "2010") {
+                    } else if (chosenFilter.valueOf() == "2010".valueOf()) {
                         if (parseInt(aListing_yearReleased) >= 2010 && parseInt(aListing_yearReleased) < 2021) {
                             correctYearReleased = true;
                         }
-                    } else if (chosenFilter == "2000") {
+                    } else if (chosenFilter.valueOf() == "2000".valueOf()) {
                         if (parseInt(aListing_yearReleased) >= 2000 && parseInt(aListing_yearReleased) < 2010) {
                             correctYearReleased = true;
                         }
-                    } else if (chosenFilter == "1990") {
+                    } else if (chosenFilter.valueOf() == "1990".valueOf()) {
                         if (parseInt(aListing_yearReleased) >= 1990 && parseInt(aListing_yearReleased) < 2000) {
                             correctYearReleased = true;
                         }
-                    } else if (chosenFilter == "1980") {
+                    } else if (chosenFilter.valueOf() == "1980".valueOf()) {
                         if (parseInt(aListing_yearReleased) >= 1980 && parseInt(aListing_yearReleased) < 1990) {
                             correctYearReleased = true;
                         }
-                    } else if (chosenFilter == "b1980") {
+                    } else if (chosenFilter.valueOf() == "b1980".valueOf()) {
                         if (parseInt(aListing_yearReleased) < 1980) {
                             correctYearReleased = true;
                         }
@@ -812,7 +826,7 @@ function addTitleToList(myTitle, myArray) {
 
 function resetFilter() {
     filtered = false;
-    // Reset sorting dropdown menu to default
+    // Reset sorting dropdown menu to default at first index
     document.getElementById("sortingMenu").selectedIndex = 0;
     // Re-enable the sort dropdown menu if it was disabled prior
     document.getElementById("sortingMenu").disabled = false;
@@ -855,6 +869,7 @@ function sortListings() {
     var chosenOption = this.value.toString();
 
     if (chosenOption.includes("title_az")) {
+        sorted = true;
         if (filtered) {
             sorted_results = filtered_results.slice().sort(compare_az);
             displayResults(sorted_results, 0);
@@ -864,6 +879,7 @@ function sortListings() {
         }
 
     } else if (chosenOption.includes("title_za")) {
+        sorted = true;
         if (filtered) {
             sorted_results = filtered_results.slice().sort(compare_za);
             displayResults(sorted_results, 0);
@@ -873,6 +889,7 @@ function sortListings() {
         }
 
     } else if (chosenOption.includes("n_to_o")) {
+        sorted = true;
         if (filtered) {
             sorted_results = filtered_results.slice().sort(compare_NTO);
             displayResults(sorted_results, 0);
@@ -882,6 +899,7 @@ function sortListings() {
         }
 
     } else if (chosenOption.includes("o_to_n")) {
+        sorted = true;
         if (filtered) {
             sorted_results = filtered_results.slice().sort(compare_OTN);
             displayResults(sorted_results, 0);
@@ -891,13 +909,13 @@ function sortListings() {
         }
 
     } else if (chosenOption.includes("unsorted")) {
+        sorted = false;
         if (filtered) {
             displayResults(filtered_results, 0);
         } else {
             displayResults(results_from_search, 0);
         }
     }
-
 }
 
 function compare_za(a, b) {
