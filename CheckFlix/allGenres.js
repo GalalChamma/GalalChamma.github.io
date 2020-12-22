@@ -407,7 +407,7 @@ function displayFilters () {
         if (this.checked) {
             if (seriesCheckbox.checked) {
                 ////console.log("both of are checked");
-                document.getElementById("genreFilter").style.display = "block";
+                document.getElementById("genreFilter").style.display = "none";
                 document.getElementById("yearFilter").style.display = "block";
                 document.getElementById("m-durationFilter").style.display = "block";
                 document.getElementById("s-durationFilter").style.display = "block";
@@ -416,7 +416,7 @@ function displayFilters () {
             } else {
                 resetCheckboxes("series");
                 //console.log("only Movie is checked");
-                document.getElementById("genreFilter").style.display = "block";
+                document.getElementById("genreFilter").style.display = "none";
                 document.getElementById("yearFilter").style.display = "block";
                 document.getElementById("m-durationFilter").style.display = "block";
                 document.getElementById("s-durationFilter").style.display = "none";
@@ -427,7 +427,7 @@ function displayFilters () {
             if (seriesCheckbox.checked) {
                 resetCheckboxes("movie");
                 //console.log("only TV SHOW is checked");
-                document.getElementById("genreFilter").style.display = "block";
+                document.getElementById("genreFilter").style.display = "none";
                 document.getElementById("yearFilter").style.display = "block";
                 document.getElementById("m-durationFilter").style.display = "none";
                 document.getElementById("s-durationFilter").style.display = "block";
@@ -449,7 +449,7 @@ function displayFilters () {
         if (this.checked) {
             if (movieCheckbox.checked) {
                 //console.log("both of are checked");
-                document.getElementById("genreFilter").style.display = "block";
+                document.getElementById("genreFilter").style.display = "none";
                 document.getElementById("yearFilter").style.display = "block";
                 document.getElementById("m-durationFilter").style.display = "block";
                 document.getElementById("s-durationFilter").style.display = "block";
@@ -458,7 +458,7 @@ function displayFilters () {
             } else {
                 resetCheckboxes("movie");
                 //console.log("only TV SHOW is checked");
-                document.getElementById("genreFilter").style.display = "block";
+                document.getElementById("genreFilter").style.display = "none";
                 document.getElementById("yearFilter").style.display = "block";
                 document.getElementById("m-durationFilter").style.display = "none";
                 document.getElementById("s-durationFilter").style.display = "block";
@@ -469,7 +469,7 @@ function displayFilters () {
             if (movieCheckbox.checked) {
                 resetCheckboxes("series");
                 //console.log("only Movie is checked");
-                document.getElementById("genreFilter").style.display = "block";
+                document.getElementById("genreFilter").style.display = "none";
                 document.getElementById("yearFilter").style.display = "block";
                 document.getElementById("m-durationFilter").style.display = "block";
                 document.getElementById("s-durationFilter").style.display = "none";
