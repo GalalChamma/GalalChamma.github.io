@@ -172,7 +172,7 @@ legend {
 .filter-content {
     border: whitesmoke solid 3px;
     color: whitesmoke;
-    width: 1000px;
+    width: auto;
     height: 750px;
     background-color: rgba(50, 50, 55, 1);
     border-radius: 20px;
@@ -202,7 +202,7 @@ legend {
 }
 
 .filterButtonSection {
-    margin: 570px auto;
+    margin: 540px auto;
     height: 70px;
     width: 700px;
     text-align: center;

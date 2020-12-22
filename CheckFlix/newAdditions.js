@@ -455,7 +455,7 @@ function displayResults(array, pageNumber){
     if (array.length == 0) {
         // disable the sort dropdown menu
         document.getElementById("sortingMenu").disabled = true;
-        document.getElementById("filterButton").disabled = true;
+        document.getElementById("filterButton").disabled = false;
         //console.log("turning off navigation buttons");
         var nav = document.getElementsByClassName("pageNavigation");
         for (let i = 0; i < nav.length; i++) {
